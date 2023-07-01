@@ -1,0 +1,12 @@
+@keyframes scroll {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+.animate {
+  animation: scroll 5s cubic-bezier(0.72, 0.39, 0.32, 0.85) infinite;
+}

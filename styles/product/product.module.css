@@ -1,0 +1,17 @@
+.textGreen {
+  color: rgba(97, 206, 1, 1);
+}
+
+.greenBg {
+  background-color: rgba(175, 255, 15, 1);
+}
+
+.hideInSmallDeviceShowInLarge {
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .hideInSmallDeviceShowInLarge {
+    display: none;
+  }
+}
