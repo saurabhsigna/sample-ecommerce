@@ -1,5 +1,6 @@
 import ProductsComponent from "@components/products/ProductsComponent";
 import NotFound from "@components/errorPage/NotFound";
+ export const runtime = 'edge';
 export default async function App({ params: { label } }) {
   let isErrorPresent = false;
   async function getProducts() {
