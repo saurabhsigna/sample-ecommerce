@@ -1,6 +1,17 @@
+"use client";
 import styles from "@styles/product/product.module.css";
-
+import { useEffect } from "react";
 const App = () => {
+  useEffect(() => {
+    const referrer = document.referrer;
+    console.log("print something ");
+    console.log(referrer);
+    if (referrer.includes("checkout.stripe.com")) {
+      localStorage.clear();
+      console.log("localStorage cleared");
+    }
+  }, []);
+
   return (
     <section
       data-section-id="1"
@@ -49,7 +60,7 @@ const App = () => {
               </p>
               <a
                 className="group relative inline-block h-12 w-full sm:w-60 bg-black rounded-md"
-                href="https://shuffle.dev/#"
+                href="/"
               >
                 <div className="absolute top-0 left-0 transform -translate-y-1 -translate-x-1 w-full h-full group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
                   <div

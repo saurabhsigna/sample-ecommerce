@@ -1,13 +1,18 @@
 "use client";
 import useSWR from "swr";
-import { useRecoilValue } from "recoil";
-import { cartItemsAtom } from "@atoms/CartAtoms";
+import { useEffect, useState } from "react";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { cartItemsAtom, removeItemFromCartSelector } from "@atoms/CartAtoms";
 import styles from "../../styles/cart/cart.module.css";
 import PriceBoard from "@components/cart/subcomponent/PriceBoard";
+import Loader from "@components/minicomponents/Loaders/SimpleLoader";
 import QntyBtn from "@components/cart/subcomponent/QuantityBtn";
 import ProductDiv from "@components/cart/subcomponent/ProductDiv";
 import PromoCode from "@components/cart/subcomponent/PromoCodeSection";
 export default function App() {
+  const [cartData, setCartData] = useState(null);
+  const [isCartLoading, setIsCartLoading] = useState(null);
+
   const fetcher = async (url, body) => {
     const response = await fetch(url, {
       method: "POST",
@@ -23,21 +28,38 @@ export default function App() {
 
     return response.json();
   };
-  const cartItems = useRecoilValue(cartItemsAtom);
-  console.log("len", cartItems);
-  let body = JSON.stringify({ cartItems: cartItems });
-  console.log("body is ", body);
 
-  const { data, error } = useSWR(
-    cartItems && cartItems.length > 0
-      ? `${process.env.NEXT_PUBLIC_BACKEND_URI}/fetchcart`
-      : null,
-    (url) => fetcher(url, body),
+  const cartItems = useRecoilValue(cartItemsAtom);
+  console.log("cartItems");
+  console.log(cartItems);
+  let body = JSON.stringify({ cartItems: cartItems });
+  const { data, error, isLoading } = useSWR(
+    `${process.env.NEXT_PUBLIC_BACKEND_URI}/api/cart/fetchcart`,
+    (url) =>
+      fetcher(url, body).then((response) => {
+        setCartData(response);
+        return response;
+      }),
     {
       errorRetryCount: 0,
       shouldRetryOnError: false,
     }
   );
+
+  useEffect(() => {
+    if (isLoading) {
+      setIsCartLoading(true);
+    } else {
+      setIsCartLoading(false);
+    }
+  }, [isLoading]);
+
+  const handleRemoveItem = (productId) => {
+    const updatedCartData = cartData.filter(
+      (item) => item.product.id !== productId
+    );
+    setCartData(updatedCartData);
+  };
 
   return (
     <section className="py-12 md:py-20">
@@ -45,22 +67,43 @@ export default function App() {
         <div className="max-w-[98%] sm:max-w-[94%] lg:max-w-6xl mx-auto">
           <h3 className="text-2xl font-bold">Cart</h3>
           <div className="flex flex-wrap -mx-4">
+            {isCartLoading && (
+              <div className="flex items-center justify-center w-full h-[65vh]">
+                <Loader />
+              </div>
+            )}
+            {cartItems &&
+              cartItems.length == 0 &&
+              !isCartLoading &&
+              !isLoading && (
+                <div className="flex items-center justify-center w-full h-[65vh]">
+                  {" "}
+                  <img
+                    src={"/components/cart/empty_cart.svg"}
+                    width={100}
+                    height={100}
+                  />
+                </div>
+              )}
+
             <div className="w-full lg:w-2/3 px-0 mb-12 lg:mb-0">
               <div className="pt-12">
                 {cartItems.length > 0 &&
                   data &&
-                  data.map((product, index) => (
+                  cartData &&
+                  cartData.map((product, index) => (
                     <ProductDiv
                       key={index}
                       product={product.product}
                       quantity={product.quantity}
+                      onRemove={() => handleRemoveItem(product.product.id)} // Pass the product ID to handleRemoveItem
                     />
                   ))}
 
-                {data && <PromoCode />}
+                {cartData && cartData.length > 0 && <PromoCode />}
               </div>
             </div>
-            {data && <PriceBoard />}
+            {cartData && cartData.length > 0 && <PriceBoard />}
           </div>
         </div>
       </div>

@@ -1,5 +1,41 @@
-import SingleOrder from "@components/orders/PurchasedOrdersList/subcomponent/SinglePurchasedOrder"
+"use client";
+import useSWR from "swr";
+import { getCookie } from "cookies-next";
+import SingleOrder from "@components/orders/PurchasedOrdersList/subcomponent/SinglePurchasedOrder";
 const App = () => {
+  const fetcher = async (url, accessToken) => {
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Request failed");
+    }
+
+    return response.json();
+  };
+
+  const accessToken = getCookie("accessToken");
+
+  const { data, error } = useSWR(
+    `${process.env.NEXT_PUBLIC_BACKEND_URI}/api/purchase/getpurchaseditems`,
+    (url) =>
+      fetcher(url, accessToken).then((response) => {
+        // setCartData(response);
+        return response.purchases;
+      }),
+    {
+      errorRetryCount: 0,
+      revalidateOnFocus: false,
+      shouldRetryOnError: false,
+    }
+  );
+  console.log("haramai");
+  console.log(data);
   return (
     <section
       data-section-id="1"
@@ -14,8 +50,10 @@ const App = () => {
           <p className="text-sm font-[500] mb-8">
             Recent Purchased Orders dolor sit amet consectutar
           </p>
-       <SingleOrder/>
-      
+          {data && data.map((purchase,index)=>(
+            <SingleOrder key={index} purchase={purchase}/>
+          ))}
+          
         </div>
       </div>
     </section>

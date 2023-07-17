@@ -1,12 +1,14 @@
-import {useSetRecoilState} from "recoil"
-import {} from "@atoms/CartAtoms"
+import {useRecoilValue,useSetRecoilState} from "recoil"
+import {removeItemFromCartSelector,cartItemsAtom} from "@atoms/CartAtoms"
+import styles from "@styles/cart/cart.module.css"
+export default function App({productId,onRemove}){
 
-export default function App({productId}){
-    const removeFromCart = useSetRecoilState(removeItemFromCartSelector);
+const removeFromCart = useSetRecoilState(removeItemFromCartSelector(productId));
 
-    const handleRemoveItem = productId => {
-      removeFromCart(productId);
-    };
+  const handleRemoveItem = () => {
+    onRemove()
+    removeFromCart();
+  };
     return (
         <button
         onClick={handleRemoveItem}

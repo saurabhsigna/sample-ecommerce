@@ -2,6 +2,10 @@
 import React, { useState } from "react";
 import styles from "@styles/components/login/login.module.css";
 import dynamic from "next/dynamic";
+import Spinner from "@components/minicomponents/Spinners/InsideButtonSpinner";
+import { register } from "@requests/register";
+import { setCookie } from "cookies-next";
+
 const PasswordChecklist = dynamic(() => import("react-password-checklist"), {
   ssr: false,
 });
@@ -11,26 +15,82 @@ const SignUpForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [usePhoneNumber, setUsePhoneNumber] = useState(false);
   const [isValidPassword, setIsValidPassword] = useState(false);
+  const [disableBtn, setDisableBtn] = useState(false);
+  const [btnText, setBtnText] = useState("Get Started");
 
   // form state
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-
+  const [errorMsg, setErrorMsg] = useState("");
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrorMsg("");
+    setDisableBtn(true);
+    setBtnText("Loading");
+    try {
+      const response = await register({
+        email,
+        password,
+        phoneNumber,
+        fullName,
+      });
+      const tokens = response;
+      console.log(tokens);
+      setCookie("accessToken", tokens.access_token, {
+        maxAge: 60 * 60 * 6,
+        sameSite: "strict",
+        secure: true,
+      });
+      setCookie("refreshToken", tokens.refresh_token, {
+        maxAge: 60 * 60 * 24 * 30,
+        sameSite: "strict",
+        secure: true,
+      });
+      setDisableBtn(false);
+      setBtnText("You Are Registered");
+    } catch (error) {
+      const errorMessage = error.message || "An error occurred";
+      console.log(errorMessage);
+      alert(errorMessage);
+      setDisableBtn(false);
+      setErrorMsg(errorMessage);
+      setBtnText("Error,Try Again");
+      // You can store the error message in state for displaying it in your UI
+      // setError(errorMessage);
+    }
   };
+
   return (
     <section className="relative py-20 lg:py-14 2xl:py-32">
-      <div className="hidden lg:block absolute top-0 right-0 2xl:w-1/2 p-8">
-        <img
-          className={`img-fluid w-full max-w-xl xl:max-w-[36rem] 2xl:max-w-none border-2 border-black rounded-md ${styles.shadowBlack} object-cover`}
+      <div className="hidden  lg:block absolute top-0 right-0 2xl:w-1/2 p-8">
+        {/* <h2 className="absolute pr-[25px] top-[100px] left-[100px] z-[2] text-red-400 text-2xl">
+          An Error Occured Due To Some Simps is Attacking On You
+        </h2> */}
+
+        {/* <img
+          className={` z-[2] img-fluid w-full max-w-xl xl:max-w-[36rem] 2xl:max-w-none border-2 border-black rounded-md ${styles.shadowBlack} object-cover`}
           src="https://shuffle.dev/shopal-assets/images/placeholder-office-sign-in.png"
           alt=""
-        />
+        /> */}
+        <div
+          className={`lg:w-[555px] lg:h-[555px] flex items-center justify-center relative max-w-xl xl:max-w-[36rem] 2xl:max-w-none border-2 border-black rounded-md ${
+            styles.shadowBlack
+          } object-cover bg-[url('https://shuffle.dev/shopal-assets/images/placeholder-office-sign-in.png')] ${
+            errorMsg && styles.registerImg
+          } `}
+        >
+          {errorMsg && (
+            <h2 className="unset ml-[50px] mb-[150px]  mr-[35px] text-red-400 text-4xl/[3rem]">
+              Error: {errorMsg}
+            </h2>
+          )}
+        </div>
       </div>
       <div className="relative container px-4 mx-auto">
         <div className="max-w-sm mx-auto lg:mx-0">
@@ -43,36 +103,33 @@ const SignUpForm = () => {
             <h3 className="text-2xl font-bold">Create new account</h3>
           </div>
           <form onSubmit={handleSubmit}>
-            <div className="flex flex-wrap mb-4 -mx-2">
-              <div className="w-full sm:w-1/2 px-2 mb-4 sm:mb-0">
-                <input
-                  required
-                  className="w-full py-3 px-6 h-12 text-sm font-bold placeholder-black border-2 border-black rounded-md focus:outline-indigo"
-                  type="text"
-                  placeholder="First Name"
-                />
-              </div>
-              <div className="w-full sm:w-1/2 px-2">
-                <input
-                  required
-                  className="w-full py-3 px-6 h-12 text-sm font-bold placeholder-black border-2 border-black rounded-md focus:outline-indigo"
-                  type="text"
-                  placeholder="Last Name"
-                />
-              </div>
-            </div>
+            <input
+              required
+              className="w-full mb-4 py-3 px-6 h-12 text-sm font-bold placeholder-black border-2 border-black rounded-md focus:outline-indigo"
+              type="text"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+              placeholder="Full Name"
+            />
             <input
               required
               className="w-full mb-4 py-3 px-6 h-12 text-sm font-bold placeholder-black border-2 border-black rounded-md focus:outline-indigo"
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Email address"
             />
             <input
               required
               className="w-full mb-4 py-3 px-6 h-12 text-sm font-bold placeholder-black border-2 border-black rounded-md focus:outline-indigo"
               type="tel"
+              value={phoneNumber}
               placeholder="Phone Number"
+              onChange={(e) => setPhoneNumber(e.target.value)}
               maxLength="10"
+              minLength={10}
+              pattern="[0-9]{10}"
+              inputMode="numeric"
             />
 
             <div className="relative">
@@ -133,12 +190,17 @@ const SignUpForm = () => {
               type="submit"
               className="group relative inline-block h-12 mb-5 w-full bg-black rounded-md"
             >
-              <div className="absolute top-0 left-0 transform -translate-y-1 -translate-x-1 w-full h-full group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
+              <div
+                className={`absolute top-0 left-0 transform ${styles.greenBg} -translate-y-1 -translate-x-1 w-full h-full group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300`}
+              >
                 <div
-                  className={`flex h-full w-full items-center justify-center ${styles.greenBg}  active:bg-blue-300 border-2 border-black rounded-md transition duration-300`}
+                  className={`flex h-full w-full items-center justify-center   active:bg-blue-300  border-2 border-black rounded-md transition duration-300 ${
+                    errorMsg && "bg-red-500"
+                  }`}
                 >
+                  {btnText == "Loading" && <Spinner color={"black"} />}{" "}
                   <span className="text-base font-black text-black">
-                    Get Started
+                    {btnText}
                   </span>
                 </div>
               </div>
@@ -147,7 +209,7 @@ const SignUpForm = () => {
             <p className="text-lg text-center font-semibold">OR</p>
 
             <button
-              className="group py-4 relative inline-block h-12 w-full bg-black rounded-md"
+              className="group py-4  my-4 relative inline-block h-12 w-full bg-black rounded-md"
               href="https://shuffle.dev/#"
             >
               <div className="absolute top-0 left-0 transform -translate-y-1 -translate-x-1 w-full h-full group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">

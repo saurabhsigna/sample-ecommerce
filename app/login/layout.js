@@ -1,10 +1,10 @@
 import { Sora } from "next/font/google";
 
-const sora = Sora({ subsets: ["latin-ext"], weight: "400", style: "normal" });
+const sora = Sora({ subsets: ["latin"], weight: "400", style: "normal" });
 
 export const metadata = {
-  title: "Register Page",
-  description: "Register Page - All For Us",
+  title: "Login Page",
+  description: "Login Page - All For Us",
 };
 
 export default function RootLayout({ children }) {

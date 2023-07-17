@@ -1,9 +1,9 @@
 "use client";
 
 import styles from "@styles/cart/cart.module.css";
-import RemoveButton from "@components/cart/subcomponent/RemoveButton"
+import RemoveButton from "@components/cart/subcomponent/RemoveButton";
 import QntyBtn from "@components/cart/subcomponent/QuantityBtn";
-export default function App({ product, quantity }) {
+export default function App({ product, quantity, onRemove }) {
   return (
     <div name="productDiv" className="mb-6">
       <div className="w-full overflow-hidden relative border-b-2 border-black">
@@ -46,13 +46,13 @@ export default function App({ product, quantity }) {
             <div
               className={`${styles.hideInSmallDeviceShowInTablet}  my-[25px] absolute right-[28px]  `}
             >
-              <RemoveButton productId={product?.id}/>
-              <button
+              <RemoveButton productId={product?.id} onRemove={onRemove} />
+              {/* <button
                 className={` py-2 px-4  font-bold border-2 border-gray-900 rounded-md ${styles.shadowBlack} text-gray-900 ${styles.greenBg}`}
                 data-config-id="auto-txt-26-1"
               >
                 Remove
-              </button>
+              </button> */}
               <button
                 className={` text-white py-2 px-4 ml-[25px] font-bold border-2 border-gray-900 rounded-md ${styles.shadowBlack} text-gray-900 bg-orange-500`}
                 data-config-id="auto-txt-26-1"

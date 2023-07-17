@@ -2,6 +2,9 @@
 import React, { useState } from "react";
 import styles from "@styles/components/login/login.module.css";
 import dynamic from "next/dynamic";
+import { login } from "@requests/login";
+import Spinner from "@components/minicomponents/Spinners/InsideButtonSpinner";
+import { setCookie } from "cookies-next";
 
 const PasswordChecklist = dynamic(() => import("react-password-checklist"), {
   ssr: false,
@@ -11,11 +14,13 @@ const SignInSection = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [usePhoneNumber, setUsePhoneNumber] = useState(false);
   const [isValidPassword, setIsValidPassword] = useState(false);
-
+  const [disableBtn, setDisableBtn] = useState(false);
+  const [btnText, setBtnText] = useState("Get Started");
   // form state
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -36,9 +41,38 @@ const SignInSection = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(JSON.stringify({ email, password, phoneNumber }));
+    setErrorMsg("");
+    setDisableBtn(true);
+    setBtnText("Loading");
+    try {
+      const response = await login({ email, password, phoneNumber });
+      const tokens = response.message;
+      console.log(tokens);
+      setCookie("accessToken", tokens.access_token, {
+        // httpOnly: true,
+        maxAge: 60 * 60 * 6,
+        sameSite: "strict",
+        secure: true,
+      });
+      setCookie("refreshToken", tokens.refresh_token, {
+        maxAge: 60 * 60 * 24 * 30,
+        sameSite: "strict",
+        secure: true,
+      });
+      setDisableBtn(false);
+      setBtnText("You Are Logged In");
+    } catch (error) {
+      const errorMessage = error.message || "An error occurred";
+      console.log(errorMessage);
+      alert(errorMessage);
+      setDisableBtn(false);
+      setErrorMsg(errorMessage);
+      setBtnText("Error,Try Again");
+      // You can store the error message in state for displaying it in your UI
+      // setError(errorMessage);
+    }
   };
 
   return (
@@ -47,12 +81,19 @@ const SignInSection = () => {
       <div className="relative container px-4 mx-auto">
         <div className="max-w-xl lg:max-w-6xl mx-auto">
           <div className="flex flex-wrap items-center justify-between -mx-4">
-            <div className="w-full xl:w-1/2 px-4 mb-16 xl:mb-0">
-              <div className="max-w-md mx-auto xl:mx-0">
+            <div className="w-full xl:w-1/2 px-4 mb-16 xl:pb-[100px] xl:mb-0">
+              <div className="max-w-[32rem] mx-auto xl:mx-0">
                 <h1 className="font-heading text-3xl font-bold text-white mb-6">
-                  Lorem ipsum dolor sit amet consectutar domor at elis.
+                  Login In To All For Us
                 </h1>
-                <p className="text-lg font-bold text-white">
+                {errorMsg && (
+                  <h2
+                    className={`font-heading text-3xl font-bold text-red-400 mb-6`}
+                  >
+                    Error: {errorMsg}
+                  </h2>
+                )}
+                <p className="hidden lg:block text-lg font-bold text-white">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Pellentesque massa nibh, pulvinar vitae aliquet nec, accumsan
                   aliquet orci.
@@ -78,6 +119,9 @@ const SignInSection = () => {
                         type="tel"
                         placeholder="Phone Number"
                         maxLength="10"
+                        minLength={10}
+                        pattern="[0-9]{10}"
+                        inputMode="numeric"
                         value={phoneNumber}
                         onChange={(e) => setPhoneNumber(e.target.value)}
                       />
@@ -161,12 +205,18 @@ const SignInSection = () => {
 
                     <button
                       type="submit"
+                      disabled={disableBtn || !isValidPassword}
                       className="group relative inline-block h-12 mb-4 w-full bg-blue-600 rounded-md"
                     >
                       <div className="absolute top-0 left-0 transform -translate-y-1 -translate-x-1 w-full h-full group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
-                        <div className="flex h-full w-full items-center justify-center bg-black hover:bg-indigo-500 border-2 border-black rounded-md transition duration-300">
+                        <div
+                          className={`flex h-full w-full items-center justify-center bg-black hover:bg-indigo-500 border-2 border-black rounded-md transition duration-300 ${
+                            errorMsg && "bg-red-500"
+                          }`}
+                        >
+                          {btnText == "Loading" && <Spinner color={"green"} />}{" "}
                           <span className="text-base font-black text-white">
-                            Get Started
+                            {btnText}
                           </span>
                         </div>
                       </div>

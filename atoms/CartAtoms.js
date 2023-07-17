@@ -9,7 +9,7 @@ export const cartItemsAtom = atom({
 
 
 export const removeItemFromCartSelector = selectorFamily({
-  key: 'removeItemFromCart',
+  key: 'removeItemFromCartSelector',
   get: productId => ({ get }) => get(cartItemsAtom),
   set: productId => ({ get, set }) => {
     const cartItems = get(cartItemsAtom);

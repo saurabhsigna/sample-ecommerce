@@ -1,5 +1,5 @@
 "use client";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import SideBar from "@components/navbar/Sidebar";
 import ProfileDropDown from "@components/dropdown/navbar/Profile";
 import LeftSideButton from "@components/navbar/LeftSideButton";
@@ -7,12 +7,16 @@ import ProfileButton from "@components/navbar/LeftSideButton/ProfileButton";
 import CartButton from "@components/navbar/LeftSideButton/CartButton";
 import SearchButton from "@components/navbar/LeftSideButton/SearchButton";
 import styles from "@styles/components/navbar.module.css";
+import AuthButton from "@components/navbar/LeftSideButton/AuthButton";
+import UseUser from "@hooks/UseUser";
 export default function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
-  const handleSidebarByButton = useCallback(() => {
+  const handleSidebarByButton = () => {
     setSidebarOpen(true);
-  }, []);
+  };
+
+  const { loading, user, loggedIn } = UseUser();
 
   return (
     <>
@@ -107,10 +111,17 @@ export default function App() {
               <div class="flex lg:flex">
                 <SearchButton showInSM={true} />
                 <CartButton showInSM={true} />
-                <ProfileButton showInSM={false} />
+                {user ? (
+                  <ProfileButton
+                    userName={user.message.fullName}
+                    showInSM={false}
+                  />
+                ) : (
+                  <AuthButton />
+                )}
               </div>
               <button
-                onClick={handleSidebarByButton}
+                onClick={() => setSidebarOpen(true)}
                 className={`${styles.hideInLargeDeviceShowInTablet} navbar-burger flex p-1 items-center lg:text-green-500 hover:text-orange-500`}
               >
                 <svg

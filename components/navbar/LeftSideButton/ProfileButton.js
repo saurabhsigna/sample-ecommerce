@@ -7,7 +7,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function App({ isLoggedIn, showInSM }) {
+export default function App({ isLoggedIn, showInSM, userName }) {
+  let firstName = userName.split(" ")[0];
   return (
     <>
       {" "}
@@ -43,7 +44,7 @@ export default function App({ isLoggedIn, showInSM }) {
             >
               <div>
                 <Menu.Button className="">
-                  Profile
+                  {firstName}
                   {/* <ChevronDownIcon className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" /> */}
                 </Menu.Button>
               </div>
