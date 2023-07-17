@@ -11,12 +11,12 @@ export default function App() {
       <div class="px-4 mx-auto container">
         <div class="max-w-6xl mx-auto">
           <div class="grid gap-y-6 lg:grid-cols-3 2xl:grid-cols-4 grid-cols-1 md:grid-cols-2 -mx-4">
-            <SingleBanner />
+            {/* <SingleBanner />
             <SingleBanner />
             <SingleBanner />
              <SingleBanner />
             <SingleBanner />
-            <SingleBanner />
+            <SingleBanner /> */}
           </div>
         </div>
       </div>
