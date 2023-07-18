@@ -6,14 +6,17 @@ export default async function App() {
   async function getProducts() {
     try {
       const body = JSON.stringify({ bookCategory: "11" });
-      const res = await fetch("https://m0wg74-3000.csb.app/api/products/fetchproducts", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json", // Ensure correct content type
-        },
-        body,
-        cache: "no-store",
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URI}/api/products/fetchproducts`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json", // Ensure correct content type
+          },
+          body,
+          cache: "no-store",
+        }
+      );
 
       if (!res.ok) {
         isErrorPresent = true;
