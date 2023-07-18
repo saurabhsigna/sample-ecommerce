@@ -1,11 +1,11 @@
 import ProductsComponent from "@components/products/ProductsComponent";
 import NotFound from "@components/errorPage/NotFound";
 import ErrorFix from "@components/checkoutPage/addressPageCheckout/ErrorFix";
-export default async function App({ params: { label } }) {
+export default async function App() {
   let isErrorPresent = false;
   async function getProducts() {
     try {
-      const body = JSON.stringify({ bookCategory: label });
+      const body = JSON.stringify({ bookCategory: "11" });
       const res = await fetch("https://m0wg74-3000.csb.app/fetchproducts", {
         method: "POST",
         headers: {
@@ -25,6 +25,7 @@ export default async function App({ params: { label } }) {
     }
   }
   const products = await getProducts();
+  console.log(products);
 
   return (
     <>
