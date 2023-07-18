@@ -1,6 +1,7 @@
 import ProductsComponent from "@components/products/ProductsComponent";
 import NotFound from "@components/errorPage/NotFound";
 import ErrorFix from "@components/checkoutPage/addressPageCheckout/ErrorFix";
+export const runtime = "edge";
 export default async function App() {
   let isErrorPresent = false;
   async function getProducts() {
@@ -15,7 +16,6 @@ export default async function App() {
           },
           body,
           cache: "no-store",
-  
         }
       );
 
