@@ -1,6 +1,6 @@
 import ProductsComponent from "@components/products/ProductsComponent";
 import NotFound from "@components/errorPage/NotFound";
-//  export const runtime = 'edge';
+
 export default async function App({ params: { label } }) {
   let isErrorPresent = false;
   async function getProducts() {
@@ -22,13 +22,11 @@ export default async function App({ params: { label } }) {
       return res.json();
     } catch (error) {
       isErrorPresent = true;
-      console.error("Error fetching data:", error);
       throw error;
     }
   }
   const products = await getProducts();
-  console.log("productionam");
-  console.log(products);
+
 
   return products && !isErrorPresent ? (
     <ProductsComponent products={products} />
