@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-swcMinify:true
+  experimental: {
+    runtime: "edge",
+  },
+  reactStrictMode: true,
+  swcMinify: true,
 };
 
 module.exports = nextConfig;
