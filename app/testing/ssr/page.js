@@ -7,6 +7,7 @@ export default async function App() {
     try {
       const body = JSON.stringify({ bookCategory: "11" });
       const res = await fetch("https://m0wg74-3000.csb.app/fetchproducts", {
+        cache: "no-store",
         method: "POST",
         headers: {
           "Content-Type": "application/json", // Ensure correct content type
