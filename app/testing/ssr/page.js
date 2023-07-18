@@ -25,7 +25,6 @@ export default async function App() {
     }
   }
   const products = await getProducts();
-  console.log(products);
 
   return (
     <>
