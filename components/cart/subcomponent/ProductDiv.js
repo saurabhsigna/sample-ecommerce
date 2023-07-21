@@ -15,7 +15,7 @@ export default function App({ product, quantity, onRemove }) {
             >
               <img
                 src={product?.imgUri}
-                className={` max-h-full max-w-full rounded-md`}
+                className={` max-h-full h-full w-full object-cover  max-w-full rounded-md`}
               />
             </div>
             <QntyBtn quantity={quantity} />
@@ -35,7 +35,9 @@ export default function App({ product, quantity, onRemove }) {
               </span>
             </div>
             <p className="font-light text-sm "> {product?.label}</p>
-            <h2 className={`text-xl font-semibold mt-[5px] ml-[10px]`}>
+            <h2
+              className={`text-xl lg:text-2xl font-semibold mt-[5px] ml-[10px]`}
+            >
               ₹ {product?.price}
             </h2>
             <p
@@ -46,7 +48,11 @@ export default function App({ product, quantity, onRemove }) {
             <div
               className={`${styles.hideInSmallDeviceShowInTablet}  my-[25px] absolute right-[28px]  `}
             >
-              <RemoveButton productId={product?.id} onRemove={onRemove} />
+              <RemoveButton
+                productId={product?.id}
+                onRemove={onRemove}
+                showShadow={true}
+              />
               {/* <button
                 className={` py-2 px-4  font-bold border-2 border-gray-900 rounded-md ${styles.shadowBlack} text-gray-900 ${styles.greenBg}`}
                 data-config-id="auto-txt-26-1"
@@ -64,14 +70,20 @@ export default function App({ product, quantity, onRemove }) {
         </div>
         <div className={`${styles.showInSmallDeviceHideInTablet} `}>
           <div className={`flex items-center justify-between mt-4`}>
-            <button
-              className={` ml-[20px] py-2 px-4 mb-4 font-bold border-2 border-gray-900 rounded-md ${styles.shadowBlack} text-gray-900 ${styles.greenBg}`}
+            {/* <button
+              className={` ml-[20px] py-2 px-4 mb-4 font-bold border-2 border-gray-900 rounded-md text-gray-900 ${styles.greenBg}`}
               data-config-id="auto-txt-26-1"
             >
               Remove
-            </button>
+            </button> */}
+            <RemoveButton
+              productId={product?.id}
+              onRemove={onRemove}
+              // showShadow={true}
+            />
+
             <button
-              className={`mr-[20px] text-white py-2 px-4 mb-4 font-bold border-2 border-gray-900 rounded-md ${styles.shadowBlack} text-gray-900 bg-orange-500`}
+              className={`mr-[20px] text-white py-2 px-4 mb-4 font-bold border-2 border-gray-900 rounded-md text-gray-900 bg-orange-500`}
               data-config-id="auto-txt-26-1"
             >
               Buy this now

@@ -8,9 +8,5 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body className={cambay.className}>{children}</body>
-    </html>
-  );
+  return <section className={cambay.className}>{children}</section>;
 }

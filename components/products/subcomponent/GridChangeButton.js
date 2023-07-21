@@ -1,8 +1,8 @@
 export default function App() {
   return (
-    <div class="inline-flex h-12 border-2 border-black rounded-md overflow-hidden">
+    <div className="inline-flex h-12 border-2 border-black rounded-md overflow-hidden">
       <a
-        class="inline-flex items-center justify-center w-12 h-full border-r border-black bg-green-500 transition duration-300"
+        className="inline-flex items-center justify-center w-12 h-full border-r border-black bg-green-500 transition duration-300"
         href="https://shuffle.dev/#"
       >
         <svg
@@ -34,7 +34,7 @@ export default function App() {
         </svg>
       </a>
       <a
-        class="inline-flex items-center justify-center w-12 h-full border-l border-black bg-white hover:bg-green-500 transition duration-300"
+        className="inline-flex items-center justify-center w-12 h-full border-l border-black bg-white hover:bg-green-500 transition duration-300"
         href="https://shuffle.dev/#"
       >
         <svg

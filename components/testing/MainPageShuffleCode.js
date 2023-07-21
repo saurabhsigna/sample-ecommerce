@@ -1,18 +1,18 @@
 export default function App() {
   return (
-    <section class="relative pb-32 overflow-hidden">
-      <nav class="relative z-10">
-        <div class="flex h-20 py-6 px-6 items-center justify-between bg-transparent relative">
-          <a class="inline-block text-2xl font-bold mr-10" href="#">
+    <section className="relative pb-32 overflow-hidden">
+      <nav className="relative z-10">
+        <div className="flex h-20 py-6 px-6 items-center justify-between bg-transparent relative">
+          <a className="inline-block text-2xl font-bold mr-10" href="#">
             <img
               src="https://shuffle.dev/shopal-assets/logos/shopal-logo.svg"
               alt=""
             />
           </a>
-          <ul class="hidden lg:flex items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <li class="mr-6">
-              <button class="relative group inline-flex items-center text-left text-base font-bold text-black hover:text-indigo-500">
-                <span class="mr-2">Category</span>
+          <ul className="hidden lg:flex items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <li className="mr-6">
+              <button className="relative group inline-flex items-center text-left text-base font-bold text-black hover:text-indigo-500">
+                <span className="mr-2">Category</span>
                 <svg
                   width="8"
                   height="6"
@@ -25,22 +25,22 @@ export default function App() {
                     fill="currentColor"
                   ></path>
                 </svg>
-                <div class="hidden group-hover:block absolute z-50 bottom-0 left-0 transform translate-y-full w-56 pt-6">
-                  <div class="p-2 bg-white border-2 border-black rounded-md shadow">
+                <div className="hidden group-hover:block absolute z-50 bottom-0 left-0 transform translate-y-full w-56 pt-6">
+                  <div className="p-2 bg-white border-2 border-black rounded-md shadow">
                     <a
-                      class="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                      className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                       href="#"
                     >
                       Category 1
                     </a>
                     <a
-                      class="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                      className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                       href="#"
                     >
                       Category 1
                     </a>
                     <a
-                      class="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                      className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                       href="#"
                     >
                       Category 1
@@ -49,9 +49,9 @@ export default function App() {
                 </div>
               </button>
             </li>
-            <li class="mr-6">
-              <button class="relative group inline-flex items-center text-left text-base font-bold text-black hover:text-indigo-500">
-                <span class="mr-2">Collection</span>
+            <li className="mr-6">
+              <button className="relative group inline-flex items-center text-left text-base font-bold text-black hover:text-indigo-500">
+                <span className="mr-2">Collection</span>
                 <svg
                   width="8"
                   height="6"
@@ -64,22 +64,22 @@ export default function App() {
                     fill="currentColor"
                   ></path>
                 </svg>
-                <div class="hidden group-hover:block absolute z-50 bottom-0 left-0 transform translate-y-full w-56 pt-6">
-                  <div class="p-2 bg-white border-2 border-black rounded-md shadow">
+                <div className="hidden group-hover:block absolute z-50 bottom-0 left-0 transform translate-y-full w-56 pt-6">
+                  <div className="p-2 bg-white border-2 border-black rounded-md shadow">
                     <a
-                      class="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                      className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                       href="#"
                     >
                       Category 1
                     </a>
                     <a
-                      class="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                      className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                       href="#"
                     >
                       Category 1
                     </a>
                     <a
-                      class="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                      className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                       href="#"
                     >
                       Category 1
@@ -88,9 +88,9 @@ export default function App() {
                 </div>
               </button>
             </li>
-            <li class="mr-6">
+            <li className="mr-6">
               <a
-                class="inline-block font-bold text-gray-900 hover:text-indigo-500"
+                className="inline-block font-bold text-gray-900 hover:text-indigo-500"
                 href="#"
               >
                 Story
@@ -98,17 +98,17 @@ export default function App() {
             </li>
             <li>
               <a
-                class="inline-block font-bold text-gray-900 hover:text-indigo-500"
+                className="inline-block font-bold text-gray-900 hover:text-indigo-500"
                 href="#"
               >
                 Brand
               </a>
             </li>
           </ul>
-          <div class="inline-flex items-center">
-            <div class="hidden lg:flex">
+          <div className="inline-flex items-center">
+            <div className="hidden lg:flex">
               <a
-                class="inline-block mr-6 text-green-500 hover:text-orange-500 transition duration-200"
+                className="inline-block mr-6 text-green-500 hover:text-orange-500 transition duration-200"
                 href="#"
               >
                 <svg
@@ -125,7 +125,7 @@ export default function App() {
                 </svg>
               </a>
               <a
-                class="inline-block mr-6 text-green-500 hover:text-orange-500 transition duration-200"
+                className="inline-block mr-6 text-green-500 hover:text-orange-500 transition duration-200"
                 href="#"
               >
                 <svg
@@ -146,7 +146,7 @@ export default function App() {
                 </svg>
               </a>
               <a
-                class="inline-block mr-6 text-green-500 hover:text-orange-500 transition duration-200"
+                className="inline-block mr-6 text-green-500 hover:text-orange-500 transition duration-200"
                 href="#"
               >
                 <svg
@@ -167,7 +167,7 @@ export default function App() {
                 </svg>
               </a>
               <a
-                class="inline-block mr-6 text-green-500 hover:text-orange-500 transition duration-200"
+                className="inline-block mr-6 text-green-500 hover:text-orange-500 transition duration-200"
                 href="#"
               >
                 <svg
@@ -188,7 +188,7 @@ export default function App() {
                 </svg>
               </a>
             </div>
-            <button class="navbar-burger flex p-1 items-center lg:text-green-500 hover:text-orange-500">
+            <button className="navbar-burger flex p-1 items-center lg:text-green-500 hover:text-orange-500">
               <svg
                 width="24"
                 height="24"
@@ -222,120 +222,120 @@ export default function App() {
           </div>
         </div>
       </nav>
-      <div class="hidden lg:block absolute bottom-0 left-0 max-w-2xs lg:max-w-sm">
+      <div className="hidden lg:block absolute bottom-0 left-0 max-w-2xs lg:max-w-sm">
         <img
-          class="relative img-fluid w-64 xl:w-96 2xl:w-112"
+          className="relative img-fluid w-64 xl:w-96 2xl:w-112"
           src="https://shuffle.dev/shopal-assets/background/purple-bg-shape2.png"
           alt=""
         />
         <img
-          class="absolute top-0 left-0 w-64 2xl:w-80 -mt-16 ml-6 img-fluid"
+          className="absolute top-0 left-0 w-64 2xl:w-80 -mt-16 ml-6 img-fluid"
           src="https://shuffle.dev/shopal-assets/images/placeholder-photo1.png"
           alt=""
         />
       </div>
-      <div class="hidden lg:block max-w-2xs lg:max-w-md absolute top-0 right-0">
+      <div className="hidden lg:block max-w-2xs lg:max-w-md absolute top-0 right-0">
         <img
-          class="relative img-fluid w-72 xl:w-96 2xl:w-112"
+          className="relative img-fluid w-72 xl:w-96 2xl:w-112"
           src="https://shuffle.dev/shopal-assets/background/purple-bg-shape.png"
           alt=""
         />
         <img
-          class="absolute bottom-0 right-0 w-64 2xl:w-88 mr-6 -mb-24 img-fluid"
+          className="absolute bottom-0 right-0 w-64 2xl:w-88 mr-6 -mb-24 img-fluid"
           src="https://shuffle.dev/shopal-assets/images/placeholder-photo2.png"
           alt=""
         />
       </div>
-      <div class="container px-4 pt-20 lg:pt-40 mx-auto relative">
-        <div class="max-w-md xl:max-w-lg 2xl:max-w-xl mx-auto text-center">
-          <h1 class="font-heading text-3xl xs:text-4xl 2xl:text-5xl font-black mb-6">
+      <div className="container px-4 pt-20 lg:pt-40 mx-auto relative">
+        <div className="max-w-md xl:max-w-lg 2xl:max-w-xl mx-auto text-center">
+          <h1 className="font-heading text-3xl xs:text-4xl 2xl:text-5xl font-black mb-6">
             Take care of your performance every day.
           </h1>
-          <p class="max-w-md mx-auto text-lg font-bold mb-12">
+          <p className="max-w-md mx-auto text-lg font-bold mb-12">
             Build a well-presented brand that everyone will love. Take care to
             develop resources continually and integrity them with previous
             projects.
           </p>
-          <div class="sm:flex mb-24 items-center justify-center">
+          <div className="sm:flex mb-24 items-center justify-center">
             <a
-              class="group relative inline-block h-12 w-full sm:w-48 mb-2 sm:mb-0 sm:mr-6 bg-blueGray-900 rounded-md"
+              className="group relative inline-block h-12 w-full sm:w-48 mb-2 sm:mb-0 sm:mr-6 bg-blueGray-900 rounded-md"
               href="#"
             >
-              <div class="absolute top-0 left-0 transform -translate-y-1 -translate-x-1 w-full h-full group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
-                <div class="flex h-full w-full items-center justify-center bg-green-600 border-2 border-black rounded-md">
-                  <span class="text-base font-black text-black">
+              <div className="absolute top-0 left-0 transform -translate-y-1 -translate-x-1 w-full h-full group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
+                <div className="flex h-full w-full items-center justify-center bg-green-600 border-2 border-black rounded-md">
+                  <span className="text-base font-black text-black">
                     Check our Catalog
                   </span>
                 </div>
               </div>
             </a>
             <a
-              class="group relative inline-block h-12 w-full sm:w-36 bg-blueGray-900 rounded-md"
+              className="group relative inline-block h-12 w-full sm:w-36 bg-blueGray-900 rounded-md"
               href="#"
             >
-              <div class="absolute top-0 left-0 transform -translate-y-1 -translate-x-1 w-full h-full group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
-                <div class="flex h-full w-full items-center justify-center bg-orange-500 border-2 border-black rounded-md">
-                  <span class="text-base font-black text-white">
+              <div className="absolute top-0 left-0 transform -translate-y-1 -translate-x-1 w-full h-full group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
+                <div className="flex h-full w-full items-center justify-center bg-orange-500 border-2 border-black rounded-md">
+                  <span className="text-base font-black text-white">
                     Start Buying
                   </span>
                 </div>
               </div>
             </a>
           </div>
-          <div class="flex items-center justify-center">
-            <button class="inline-block mr-3 w-2 h-2 border-2 border-black rounded-full bg-green-500"></button>
-            <button class="inline-block mr-3 w-2 h-2 border-2 border-black rounded-full hover:bg-green-500"></button>
-            <button class="inline-block mr-3 w-2 h-2 border-2 border-black rounded-full hover:bg-green-500"></button>
-            <button class="inline-block mr-3 w-2 h-2 border-2 border-black rounded-full hover:bg-green-500"></button>
-            <button class="inline-block mr-3 w-2 h-2 border-2 border-black rounded-full hover:bg-green-500"></button>
-            <button class="inline-block mr-3 w-2 h-2 border-2 border-black rounded-full hover:bg-green-500"></button>
+          <div className="flex items-center justify-center">
+            <button className="inline-block mr-3 w-2 h-2 border-2 border-black rounded-full bg-green-500"></button>
+            <button className="inline-block mr-3 w-2 h-2 border-2 border-black rounded-full hover:bg-green-500"></button>
+            <button className="inline-block mr-3 w-2 h-2 border-2 border-black rounded-full hover:bg-green-500"></button>
+            <button className="inline-block mr-3 w-2 h-2 border-2 border-black rounded-full hover:bg-green-500"></button>
+            <button className="inline-block mr-3 w-2 h-2 border-2 border-black rounded-full hover:bg-green-500"></button>
+            <button className="inline-block mr-3 w-2 h-2 border-2 border-black rounded-full hover:bg-green-500"></button>
           </div>
         </div>
       </div>
-      <div class="lg:hidden flex flex-wrap justify-between mt-32">
-        <div class="w-full md:w-1/2 lg:w-1/3 mb-8 sm:mb-0">
-          <div class="relative max-w-xs">
+      <div className="lg:hidden flex flex-wrap justify-between mt-32">
+        <div className="w-full md:w-1/2 lg:w-1/3 mb-8 sm:mb-0">
+          <div className="relative max-w-xs">
             <img
-              class="relative img-fluid w-full"
+              className="relative img-fluid w-full"
               src="https://shuffle.dev/shopal-assets/background/purple-bg-shape2.png"
               alt=""
             />
             <img
-              class="absolute top-0 left-0 -mt-16 px-4 md:ml-6 img-fluid"
+              className="absolute top-0 left-0 -mt-16 px-4 md:ml-6 img-fluid"
               src="https://shuffle.dev/shopal-assets/images/placeholder-photo1.png"
               alt=""
             />
           </div>
         </div>
-        <div class="w-full md:w-1/2 lg:w-1/3">
-          <div class="relative max-w-xs ml-auto">
+        <div className="w-full md:w-1/2 lg:w-1/3">
+          <div className="relative max-w-xs ml-auto">
             <img
-              class="relative img-fluid w-full"
+              className="relative img-fluid w-full"
               src="https://shuffle.dev/shopal-assets/background/purple-bg-shape.png"
               alt=""
             />
             <img
-              class="absolute bottom-0 right-0 px-4 md:mr-6 -mb-24 img-fluid"
+              className="absolute bottom-0 right-0 px-4 md:mr-6 -mb-24 img-fluid"
               src="https://shuffle.dev/shopal-assets/images/placeholder-photo2.png"
               alt=""
             />
           </div>
         </div>
       </div>
-      <div class="hidden navbar-menu fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50">
-        <div class="navbar-backdrop fixed inset-0 backdrop-blur-xl backdrop-filter bg-gray-900 bg-opacity-80"></div>
-        <nav class="relative pt-7 pb-8 bg-white h-full overflow-y-auto">
-          <div class="flex flex-col px-6 h-full">
-            <a class="inline-block ml-4 mb-7" href="#">
+      <div className="hidden navbar-menu fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50">
+        <div className="navbar-backdrop fixed inset-0 backdrop-blur-xl backdrop-filter bg-gray-900 bg-opacity-80"></div>
+        <nav className="relative pt-7 pb-8 bg-white h-full overflow-y-auto">
+          <div className="flex flex-col px-6 h-full">
+            <a className="inline-block ml-4 mb-7" href="#">
               <img
                 src="https://shuffle.dev/shopal-assets/logos/shopal-logo.svg"
                 alt=""
               />
             </a>
-            <ul class="w-full mb-auto pb-16">
-              <li class="mb-6">
-                <button class="relative group inline-flex flex-wrap items-center text-left text-base font-bold text-black">
-                  <span class="mr-2">Category</span>
+            <ul className="w-full mb-auto pb-16">
+              <li className="mb-6">
+                <button className="relative group inline-flex flex-wrap items-center text-left text-base font-bold text-black">
+                  <span className="mr-2">Category</span>
                   <svg
                     width="8"
                     height="6"
@@ -348,21 +348,21 @@ export default function App() {
                       fill="currentColor"
                     ></path>
                   </svg>
-                  <div class="hidden group-hover:block w-full pt-2 px-2">
+                  <div className="hidden group-hover:block w-full pt-2 px-2">
                     <a
-                      class="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                      className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                       href="#"
                     >
                       Category 1
                     </a>
                     <a
-                      class="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                      className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                       href="#"
                     >
                       Category 1
                     </a>
                     <a
-                      class="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                      className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                       href="#"
                     >
                       Category 1
@@ -370,9 +370,9 @@ export default function App() {
                   </div>
                 </button>
               </li>
-              <li class="mb-6">
-                <button class="relative group inline-flex flex-wrap items-center text-left text-base font-bold text-black">
-                  <span class="mr-2">Pages</span>
+              <li className="mb-6">
+                <button className="relative group inline-flex flex-wrap items-center text-left text-base font-bold text-black">
+                  <span className="mr-2">Pages</span>
                   <svg
                     width="8"
                     height="6"
@@ -385,21 +385,21 @@ export default function App() {
                       fill="currentColor"
                     ></path>
                   </svg>
-                  <div class="hidden group-hover:block w-full pt-2 px-2">
+                  <div className="hidden group-hover:block w-full pt-2 px-2">
                     <a
-                      class="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                      className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                       href="#"
                     >
                       Category 1
                     </a>
                     <a
-                      class="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                      className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                       href="#"
                     >
                       Category 1
                     </a>
                     <a
-                      class="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                      className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                       href="#"
                     >
                       Category 1
@@ -407,9 +407,9 @@ export default function App() {
                   </div>
                 </button>
               </li>
-              <li class="mb-6">
-                <button class="relative group inline-flex flex-wrap items-center text-left text-base font-bold text-black">
-                  <span class="mr-2">Products</span>
+              <li className="mb-6">
+                <button className="relative group inline-flex flex-wrap items-center text-left text-base font-bold text-black">
+                  <span className="mr-2">Products</span>
                   <svg
                     width="8"
                     height="6"
@@ -422,21 +422,21 @@ export default function App() {
                       fill="currentColor"
                     ></path>
                   </svg>
-                  <div class="hidden group-hover:block w-full pt-2 px-2">
+                  <div className="hidden group-hover:block w-full pt-2 px-2">
                     <a
-                      class="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                      className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                       href="#"
                     >
                       Category 1
                     </a>
                     <a
-                      class="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                      className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                       href="#"
                     >
                       Category 1
                     </a>
                     <a
-                      class="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                      className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                       href="#"
                     >
                       Category 1
@@ -444,30 +444,30 @@ export default function App() {
                   </div>
                 </button>
               </li>
-              <li class="mb-6">
-                <a class="inline-block pl-1 font-bold" href="#">
+              <li className="mb-6">
+                <a className="inline-block pl-1 font-bold" href="#">
                   Blog
                 </a>
               </li>
-              <li class="mb-6">
-                <a class="inline-block pl-1 font-bold" href="#">
+              <li className="mb-6">
+                <a className="inline-block pl-1 font-bold" href="#">
                   Shop
                 </a>
               </li>
               <li>
-                <a class="inline-block pl-1 font-bold" href="#">
+                <a className="inline-block pl-1 font-bold" href="#">
                   Contact
                 </a>
               </li>
             </ul>
-            <div class="w-full">
-              <button class="block w-full py-4 px-4 mb-4 font-bold border-2 border-gray-900 rounded-md shadow">
+            <div className="w-full">
+              <button className="block w-full py-4 px-4 mb-4 font-bold border-2 border-gray-900 rounded-md shadow">
                 Log in
               </button>
-              <button class="block w-full py-4 px-4 mb-8 font-bold border-2 border-gray-900 rounded-md shadow text-gray-900 bg-green-500">
+              <button className="block w-full py-4 px-4 mb-8 font-bold border-2 border-gray-900 rounded-md shadow text-gray-900 bg-green-500">
                 Sign up
               </button>
-              <p class="pl-2 text-sm">2022 &copy; Shuffle</p>
+              <p className="pl-2 text-sm">2022 &copy; Shuffle</p>
             </div>
           </div>
         </nav>

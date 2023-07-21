@@ -1,8 +1,9 @@
 "use client";
+import Link from "next/link";
 import { useCallback } from "react";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import styles from "@styles/components/navbar.module.css";
-export default function App({ isOpen, setOpen }) {
+export default function App({ isOpen, setOpen, user }) {
   const handleSidebarByButton = useCallback(() => {
     setOpen(false);
   }, [setOpen]);
@@ -15,16 +16,16 @@ export default function App({ isOpen, setOpen }) {
     >
       <div
         onClick={handleSidebarByButton}
-        class="navbar-backdrop fixed inset-0 backdrop-blur-xl backdrop-filter bg-gray-900 bg-opacity-80"
+        className="navbar-backdrop fixed inset-0 backdrop-blur-xl backdrop-filter bg-gray-900 bg-opacity-80"
       ></div>
       <nav
-        class="relative pt-7 pb-8 bg-white h-full overflow-y-auto"
+        className="relative pt-7 pb-8 bg-white h-full overflow-y-auto"
         data-config-id="toggle-mobile-2"
         data-config-target=".navbar-menu"
-        data-config-class="hidden"
+        data-config-className="hidden"
       >
-        <div class="flex flex-col px-6 h-full">
-          <div class="flex items-center justify-between ml-4 mb-7">
+        <div className="flex flex-col px-6 h-full">
+          <div className="flex items-center justify-between ml-4 mb-7">
             <img
               src="https://shuffle.dev/shopal-assets/logos/shopal-logo.svg"
               alt=""
@@ -34,13 +35,13 @@ export default function App({ isOpen, setOpen }) {
               <XMarkIcon width={30} />
             </div>
           </div>
-          <ul class="w-full mb-auto pb-16">
-            <li class="mb-6">
+          <ul className="w-full mb-auto pb-16">
+            <li className="mb-6">
               <button
-                class="relative group inline-flex flex-wrap items-center text-left text-base font-bold text-black"
+                className="relative group inline-flex flex-wrap items-center text-left text-base font-bold text-black"
                 data-config-id="auto-input-3-1"
               >
-                <span class="mr-2" data-config-id="auto-txt-36-1">
+                <span className="mr-2" data-config-id="auto-txt-36-1">
                   Category
                 </span>
                 <svg
@@ -55,23 +56,25 @@ export default function App({ isOpen, setOpen }) {
                     fill="currentColor"
                   ></path>
                 </svg>
-                <div class="hidden group-hover:block w-full pt-2 px-2">
+                <div
+                  className={`hidden group-hover:block w-full pt-2 px-2 ${styles.shadowBlack}`}
+                >
                   <a
-                    class="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                    className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                     href="https://shuffle.dev/#"
                     data-config-id="auto-txt-37-1"
                   >
                     Category 1
                   </a>
                   <a
-                    class="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                    className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                     href="https://shuffle.dev/#"
                     data-config-id="auto-txt-38-1"
                   >
                     Category 1
                   </a>
                   <a
-                    class="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                    className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                     href="https://shuffle.dev/#"
                     data-config-id="auto-txt-39-1"
                   >
@@ -80,12 +83,12 @@ export default function App({ isOpen, setOpen }) {
                 </div>
               </button>
             </li>
-            <li class="mb-6">
+            <li className="mb-6">
               <button
-                class="relative group inline-flex flex-wrap items-center text-left text-base font-bold text-black"
+                className="relative group inline-flex flex-wrap items-center text-left text-base font-bold text-black"
                 data-config-id="auto-input-3-1"
               >
-                <span class="mr-2" data-config-id="auto-txt-40-1">
+                <span className="mr-2" data-config-id="auto-txt-40-1">
                   Pages
                 </span>
                 <svg
@@ -100,23 +103,23 @@ export default function App({ isOpen, setOpen }) {
                     fill="currentColor"
                   ></path>
                 </svg>
-                <div class="hidden group-hover:block w-full pt-2 px-2">
+                <div className="hidden group-hover:block w-full pt-2 px-2">
                   <a
-                    class="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                    className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                     href="https://shuffle.dev/#"
                     data-config-id="auto-txt-41-1"
                   >
                     Category 1
                   </a>
                   <a
-                    class="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                    className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                     href="https://shuffle.dev/#"
                     data-config-id="auto-txt-42-1"
                   >
                     Category 1
                   </a>
                   <a
-                    class="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                    className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                     href="https://shuffle.dev/#"
                     data-config-id="auto-txt-43-1"
                   >
@@ -125,12 +128,12 @@ export default function App({ isOpen, setOpen }) {
                 </div>
               </button>
             </li>
-            <li class="mb-6">
+            <li className="mb-6">
               <button
-                class="relative group inline-flex flex-wrap items-center text-left text-base font-bold text-black"
+                className="relative group inline-flex flex-wrap items-center text-left text-base font-bold text-black"
                 data-config-id="auto-input-3-1"
               >
-                <span class="mr-2" data-config-id="auto-txt-44-1">
+                <span className="mr-2" data-config-id="auto-txt-44-1">
                   Products
                 </span>
                 <svg
@@ -145,23 +148,23 @@ export default function App({ isOpen, setOpen }) {
                     fill="currentColor"
                   ></path>
                 </svg>
-                <div class="hidden group-hover:block w-full pt-2 px-2">
+                <div className="hidden group-hover:block w-full pt-2 px-2">
                   <a
-                    class="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                    className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                     href="https://shuffle.dev/#"
                     data-config-id="auto-txt-45-1"
                   >
                     Category 1
                   </a>
                   <a
-                    class="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                    className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                     href="https://shuffle.dev/#"
                     data-config-id="auto-txt-46-1"
                   >
                     Category 1
                   </a>
                   <a
-                    class="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                    className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                     href="https://shuffle.dev/#"
                     data-config-id="auto-txt-47-1"
                   >
@@ -170,48 +173,68 @@ export default function App({ isOpen, setOpen }) {
                 </div>
               </button>
             </li>
-            <li class="mb-6">
+            <li className="mb-6">
               <a
-                class="inline-block pl-1 font-bold"
+                className="inline-block pl-1 font-bold"
                 href="https://shuffle.dev/#"
                 data-config-id="auto-txt-22-1"
               >
                 Blog
               </a>
             </li>
-            <li class="mb-6">
-              <a
-                class="inline-block pl-1 font-bold"
-                href="https://shuffle.dev/#"
-                data-config-id="auto-txt-23-1"
+            <li className="mb-6">
+              <Link
+                onClick={handleSidebarByButton}
+                href={"/orders/list"}
+                className="inline-block pl-1 font-bold"
               >
-                Shop
-              </a>
+                Your Orders
+              </Link>
             </li>
             <li>
-              <a
-                class="inline-block pl-1 font-bold"
-                href="https://shuffle.dev/#"
-                data-config-id="auto-txt-24-1"
+              <Link
+                className="inline-block pl-1 font-bold"
+                href="/contact"
+                onClick={handleSidebarByButton}
               >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
-          <div class="w-full">
-            <button
-              className={`block w-full py-4 px-4 mb-4 font-bold border-2 border-gray-900 rounded-md ${styles.shadowBlack}`}
-              data-config-id="auto-txt-25-1"
-            >
-              Log in
-            </button>
-            <button
-              className={`block w-full py-4 px-4 mb-8 font-bold border-2 border-gray-900 rounded-md ${styles.shadowBlack} text-gray-900 ${styles.greenBg}`}
-              data-config-id="auto-txt-26-1"
-            >
-              Sign up
-            </button>
-            <p class="pl-2 text-sm" data-config-id="auto-txt-27-1">
+          <div className="w-full">
+            {user ? (
+              <div>
+                <Link
+                  href={"/logout"}
+                  onClick={handleSidebarByButton}
+                  className={`block text-center w-full py-4 px-4 mb-4 font-bold border-2 border-gray-900 rounded-md ${styles.shadowBlack} bg-orange-500`}
+                  data-config-id="auto-txt-25-1"
+                >
+                  Log Out
+                </Link>
+              </div>
+            ) : (
+              <div>
+                <Link
+                  href={"/login"}
+                  onClick={handleSidebarByButton}
+                  className={`block text-center w-full py-4 px-4 mb-4 font-bold border-2 border-gray-900 rounded-md ${styles.shadowBlack}`}
+                  data-config-id="auto-txt-25-1"
+                >
+                  Log in
+                </Link>
+                <Link
+                  href={"/register"}
+                  onClick={handleSidebarByButton}
+                  className={`block text-center w-full py-4 px-4 mb-8 font-bold border-2 border-gray-900 rounded-md ${styles.shadowBlack} text-gray-900 ${styles.greenBg}`}
+                  data-config-id="auto-txt-26-1"
+                >
+                  Sign up
+                </Link>
+              </div>
+            )}
+
+            <p className="pl-2 text-sm" data-config-id="auto-txt-27-1">
               2022 © Shuffle
             </p>
           </div>

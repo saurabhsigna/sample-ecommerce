@@ -47,8 +47,8 @@
 }
 
 .sliderContainer {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  height: 333px;
+  /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); */
+  height: 353px;
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -67,9 +67,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: black;
+  /* background: black;
   border-right: solid #82a972 10px;
-  background: rgba(0, 0, 0, 1);
+  background: rgba(0, 0, 0, 1); */
 }
 
 .sliderContainer .slider__slide:hover {
@@ -78,6 +78,6 @@
 }
 
 .sliderContainer .slider__slide .slide__content {
-  color: white;
+  color: black;
   font-size: 80px;
 }

@@ -1,5 +1,6 @@
 import ProductsComponent from "@components/products/ProductsComponent";
 import NotFound from "@components/errorPage/NotFound";
+import Skeleton from "@components/products/loading/Skeleton"
 export const runtime = 'edge';
 export default async function App({ params: { label } }) {
   let isErrorPresent = false;
@@ -30,7 +31,12 @@ export default async function App({ params: { label } }) {
 
 
   return products && !isErrorPresent ? (
+    <div>
     <ProductsComponent products={products} />
+    <div>
+      {/* <Skeleton/> */}
+      </div>
+    </div>
   ) : (
     isErrorPresent && <NotFound />
   );

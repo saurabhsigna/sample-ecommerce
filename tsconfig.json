@@ -28,7 +28,8 @@
       "@styles/*": ["styles/*"],
       "@atoms/*": ["atoms/*"],
       "@requests/*": ["requests/*"],
-      "@hooks/*": ["hooks/*"]
+      "@hooks/*": ["hooks/*"],
+      "@public/*": ["public/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

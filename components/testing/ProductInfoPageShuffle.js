@@ -1,74 +1,74 @@
 export default function App() {
   return (
-    <section class="py-20">
-      <div class="container px-4 mx-auto">
-        <div class="max-w-xl lg:max-w-6xl mx-auto">
-          <div class="flex flex-wrap -mx-4 mb-12">
-            <div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
-              <div class="lg:w-112">
+    <section className="py-20">
+      <div className="container px-4 mx-auto">
+        <div className="max-w-xl lg:max-w-6xl mx-auto">
+          <div className="flex flex-wrap -mx-4 mb-12">
+            <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+              <div className="lg:w-112">
                 <a
-                  class="relative group block mb-6 h-[26rem] w-full bg-black rounded-md"
+                  className="relative group block mb-6 h-[26rem] w-full bg-black rounded-md"
                   href="#"
                 >
-                  <div class="absolute top-0 left-0 h-full w-full transform -translate-y-1 -translate-x-1 group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
+                  <div className="absolute top-0 left-0 h-full w-full transform -translate-y-1 -translate-x-1 group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
                     <img
-                      class="img-fluid w-full h-full object-cover rounded-md border-2 border-black"
+                      className="img-fluid w-full h-full object-cover rounded-md border-2 border-black"
                       src="https://shuffle.dev/shopal-assets/product-details/product-detail-large.png"
                       alt=""
                     />
                   </div>
                 </a>
-                <div class="flex flex-wrap -mx-3 -mb-3 justify-between">
-                  <div class="w-1/2 xs:w-1/4 px-3 mb-3">
+                <div className="flex flex-wrap -mx-3 -mb-3 justify-between">
+                  <div className="w-1/2 xs:w-1/4 px-3 mb-3">
                     <a
-                      class="relative group block h-[10rem] w-full bg-blueGray-900 rounded-md"
+                      className="relative group block h-[10rem] w-full bg-blueGray-900 rounded-md"
                       href="#"
                     >
-                      <div class="absolute top-0 left-0 h-full w-full transform -translate-y-1 -translate-x-1 group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
+                      <div className="absolute top-0 left-0 h-full w-full transform -translate-y-1 -translate-x-1 group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
                         <img
-                          class="img-fluid w-full h-full object-cover rounded-md border-2 border-black"
+                          className="img-fluid w-full h-full object-cover rounded-md border-2 border-black"
                           src="https://shuffle.dev/shopal-assets/product-details/product-detail-small1.png"
                           alt=""
                         />
                       </div>
                     </a>
                   </div>
-                  <div class="w-1/2 xs:w-1/4 px-3 mb-3">
+                  <div className="w-1/2 xs:w-1/4 px-3 mb-3">
                     <a
-                      class="relative group block h-[10rem] w-full bg-blueGray-900 rounded-md"
+                      className="relative group block h-[10rem] w-full bg-blueGray-900 rounded-md"
                       href="#"
                     >
-                      <div class="absolute top-0 left-0 h-full w-full transform -translate-y-1 -translate-x-1 group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
+                      <div className="absolute top-0 left-0 h-full w-full transform -translate-y-1 -translate-x-1 group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
                         <img
-                          class="img-fluid w-full h-full object-cover rounded-md border-2 border-black"
+                          className="img-fluid w-full h-full object-cover rounded-md border-2 border-black"
                           src="https://shuffle.dev/shopal-assets/product-details/product-detail-small2.png"
                           alt=""
                         />
                       </div>
                     </a>
                   </div>
-                  <div class="w-1/2 xs:w-1/4 px-3 mb-3">
+                  <div className="w-1/2 xs:w-1/4 px-3 mb-3">
                     <a
-                      class="relative group block h-[10rem] w-full bg-blueGray-900 rounded-md"
+                      className="relative group block h-[10rem] w-full bg-blueGray-900 rounded-md"
                       href="#"
                     >
-                      <div class="absolute top-0 left-0 h-full w-full transform -translate-y-1 -translate-x-1 group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
+                      <div className="absolute top-0 left-0 h-full w-full transform -translate-y-1 -translate-x-1 group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
                         <img
-                          class="img-fluid w-full h-full object-cover rounded-md border-2 border-black"
+                          className="img-fluid w-full h-full object-cover rounded-md border-2 border-black"
                           src="https://shuffle.dev/shopal-assets/product-details/product-detail-small3.png"
                           alt=""
                         />
                       </div>
                     </a>
                   </div>
-                  <div class="w-1/2 xs:w-1/4 px-3 mb-3">
+                  <div className="w-1/2 xs:w-1/4 px-3 mb-3">
                     <a
-                      class="relative group block h-[10rem] w-full bg-blueGray-900 rounded-md"
+                      className="relative group block h-[10rem] w-full bg-blueGray-900 rounded-md"
                       href="#"
                     >
-                      <div class="absolute top-0 left-0 h-full w-full transform -translate-y-1 -translate-x-1 group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
+                      <div className="absolute top-0 left-0 h-full w-full transform -translate-y-1 -translate-x-1 group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
                         <img
-                          class="img-fluid w-full h-full object-cover rounded-md border-2 border-black"
+                          className="img-fluid w-full h-full object-cover rounded-md border-2 border-black"
                           src="https://shuffle.dev/shopal-assets/product-details/product-detail-small4.png"
                           alt=""
                         />
@@ -78,12 +78,12 @@ export default function App() {
                 </div>
               </div>
             </div>
-            <div class="w-full lg:w-1/2 px-4">
-              <div class="max-w-lg">
-                <h2 class="text-4xl font-black mb-1">Product title</h2>
-                <span class="block text-sm font-bold mb-5">Brand Name</span>
-                <div class="flex items-center mb-4">
-                  <button class="inline-block mr-2">
+            <div className="w-full lg:w-1/2 px-4">
+              <div className="max-w-lg">
+                <h2 className="text-4xl font-black mb-1">Product title</h2>
+                <span className="block text-sm font-bold mb-5">Brand Name</span>
+                <div className="flex items-center mb-4">
+                  <button className="inline-block mr-2">
                     <svg
                       width="20"
                       height="20"
@@ -97,7 +97,7 @@ export default function App() {
                       ></path>
                     </svg>
                   </button>
-                  <button class="inline-block mr-2">
+                  <button className="inline-block mr-2">
                     <svg
                       width="20"
                       height="20"
@@ -111,7 +111,7 @@ export default function App() {
                       ></path>
                     </svg>
                   </button>
-                  <button class="inline-block mr-2">
+                  <button className="inline-block mr-2">
                     <svg
                       width="20"
                       height="20"
@@ -125,7 +125,7 @@ export default function App() {
                       ></path>
                     </svg>
                   </button>
-                  <button class="inline-block mr-2">
+                  <button className="inline-block mr-2">
                     <svg
                       width="20"
                       height="20"
@@ -139,7 +139,7 @@ export default function App() {
                       ></path>
                     </svg>
                   </button>
-                  <button class="inline-block">
+                  <button className="inline-block">
                     <svg
                       width="20"
                       height="20"
@@ -157,14 +157,14 @@ export default function App() {
                     </svg>
                   </button>
                 </div>
-                <span class="block text-2xl font-black text-green-500 mb-4">
+                <span className="block text-2xl font-black text-green-500 mb-4">
                   $ 199.00
                 </span>
-                <p class="font-bold mb-2">
+                <p className="font-bold mb-2">
                   Pariatur ex aliqua elit ut enim consequat amet non do ut. Ad
                   aute deserunt fugiat qui Lorem in quis velit labore voluptate.
                 </p>
-                <ul class="list-disc list-inside font-medium mb-6">
+                <ul className="list-disc list-inside font-medium mb-6">
                   <li>
                     Pariatur ex aliqua elit ut enim consequat amet non do ut.
                   </li>
@@ -174,33 +174,35 @@ export default function App() {
                   </li>
                   <li>Lorem in quis velit labore</li>
                 </ul>
-                <div class="flex flex-wrap mb-4">
-                  <div class="w-full sm:w-auto mb-4 sm:mb-0 sm:mr-4">
-                    <span class="block text-sm font-black mb-2">Amount</span>
-                    <div class="flex h-12 w-24 px-2 items-center justify-between border-2 border-black rounded-md">
-                      <button class="flex w-3.5 h-3.5 px-px items-center justify-center bg-black hover:bg-indigo-500 rounded transition duration-100">
-                        <div class="h-px mx-px w-full bg-white"></div>
+                <div className="flex flex-wrap mb-4">
+                  <div className="w-full sm:w-auto mb-4 sm:mb-0 sm:mr-4">
+                    <span className="block text-sm font-black mb-2">
+                      Amount
+                    </span>
+                    <div className="flex h-12 w-24 px-2 items-center justify-between border-2 border-black rounded-md">
+                      <button className="flex w-3.5 h-3.5 px-px items-center justify-center bg-black hover:bg-indigo-500 rounded transition duration-100">
+                        <div className="h-px mx-px w-full bg-white"></div>
                       </button>
                       <input
-                        class="w-10 text-center text-sm font-bold placeholder-black text-black outline-none"
+                        className="w-10 text-center text-sm font-bold placeholder-black text-black outline-none"
                         type="number"
                         placeholder="2"
                       />
-                      <button class="relative flex w-3.5 h-3.5 px-px py-px items-center justify-center bg-black hover:bg-indigo-500 rounded transition duration-100">
-                        <div class="relative h-full w-full py-px">
-                          <div class="absolute top-1/2 left-0 h-px w-full bg-white"></div>
-                          <div class="inline-block max-w-max mx-auto h-full bg-white">
-                            <div class="inline-block px-px"></div>
+                      <button className="relative flex w-3.5 h-3.5 px-px py-px items-center justify-center bg-black hover:bg-indigo-500 rounded transition duration-100">
+                        <div className="relative h-full w-full py-px">
+                          <div className="absolute top-1/2 left-0 h-px w-full bg-white"></div>
+                          <div className="inline-block max-w-max mx-auto h-full bg-white">
+                            <div className="inline-block px-px"></div>
                           </div>
                         </div>
                       </button>
                     </div>
                   </div>
-                  <div class="w-full sm:w-auto">
-                    <span class="block text-sm font-black mb-2">Size</span>
-                    <div class="group relative h-12 w-32 border-2 border-black rounded-md overflow-hidden">
+                  <div className="w-full sm:w-auto">
+                    <span className="block text-sm font-black mb-2">Size</span>
+                    <div className="group relative h-12 w-32 border-2 border-black rounded-md overflow-hidden">
                       <select
-                        class="w-full h-full px-4 text-sm font-bold appearance-none outline-none"
+                        className="w-full h-full px-4 text-sm font-bold appearance-none outline-none"
                         name=""
                         id=""
                       >
@@ -208,7 +210,7 @@ export default function App() {
                         <option value="1">Medium</option>
                         <option value="1">Large</option>
                       </select>
-                      <span class="absolute top-1/2 right-0 mr-3 transform -translate-y-1/2 text-black group-hover:text-indigo-500">
+                      <span className="absolute top-1/2 right-0 mr-3 transform -translate-y-1/2 text-black group-hover:text-indigo-500">
                         <svg
                           width="10"
                           height="6"
@@ -225,24 +227,24 @@ export default function App() {
                     </div>
                   </div>
                 </div>
-                <div class="flex flex-wrap sm:flex-nowrap items-center -mx-2 mb-6">
-                  <div class="flex-grow-1 w-full px-2 mb-4">
+                <div className="flex flex-wrap sm:flex-nowrap items-center -mx-2 mb-6">
+                  <div className="flex-grow-1 w-full px-2 mb-4">
                     <a
-                      class="group relative inline-block h-12 w-full -mb-2 bg-blueGray-900 rounded-md"
+                      className="group relative inline-block h-12 w-full -mb-2 bg-blueGray-900 rounded-md"
                       href="#"
                     >
-                      <div class="absolute top-0 left-0 transform -translate-y-1 -translate-x-1 w-full h-full group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
-                        <div class="flex h-full w-full items-center justify-center bg-green-600 border-2 border-black rounded-md">
-                          <span class="text-base font-black text-black">
+                      <div className="absolute top-0 left-0 transform -translate-y-1 -translate-x-1 w-full h-full group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
+                        <div className="flex h-full w-full items-center justify-center bg-green-600 border-2 border-black rounded-md">
+                          <span className="text-base font-black text-black">
                             Add to Cart
                           </span>
                         </div>
                       </div>
                     </a>
                   </div>
-                  <div class="w-auto px-2 mb-4">
+                  <div className="w-auto px-2 mb-4">
                     <a
-                      class="inline-flex items-center justify-center w-12 h-12 text-black hover:text-indigo-500 border-2 border-black hover:border-indigo-500 rounded-md transition duration-200"
+                      className="inline-flex items-center justify-center w-12 h-12 text-black hover:text-indigo-500 border-2 border-black hover:border-indigo-500 rounded-md transition duration-200"
                       href="#"
                     >
                       <svg
@@ -259,9 +261,9 @@ export default function App() {
                       </svg>
                     </a>
                   </div>
-                  <div class="w-auto px-2 mb-4">
+                  <div className="w-auto px-2 mb-4">
                     <a
-                      class="inline-flex items-center justify-center w-12 h-12 text-black hover:text-indigo-500 border-2 border-black hover:border-indigo-500 rounded-md transition duration-200"
+                      className="inline-flex items-center justify-center w-12 h-12 text-black hover:text-indigo-500 border-2 border-black hover:border-indigo-500 rounded-md transition duration-200"
                       href="#"
                     >
                       <svg
@@ -299,12 +301,12 @@ export default function App() {
                     </a>
                   </div>
                 </div>
-                <span class="block text-sm font-black mb-2">
+                <span className="block text-sm font-black mb-2">
                   Share on Social Media
                 </span>
                 <div>
                   <a
-                    class="inline-block text-green-500 hover:text-indigo-500 mr-6"
+                    className="inline-block text-green-500 hover:text-indigo-500 mr-6"
                     href="#"
                   >
                     <svg
@@ -339,7 +341,7 @@ export default function App() {
                     </svg>
                   </a>
                   <a
-                    class="inline-block text-green-500 hover:text-indigo-500 mr-6"
+                    className="inline-block text-green-500 hover:text-indigo-500 mr-6"
                     href="#"
                   >
                     <svg
@@ -374,7 +376,7 @@ export default function App() {
                     </svg>
                   </a>
                   <a
-                    class="inline-block text-green-500 hover:text-indigo-500 mr-6"
+                    className="inline-block text-green-500 hover:text-indigo-500 mr-6"
                     href="#"
                   >
                     <svg
@@ -409,7 +411,7 @@ export default function App() {
                     </svg>
                   </a>
                   <a
-                    class="inline-block text-green-500 hover:text-indigo-500"
+                    className="inline-block text-green-500 hover:text-indigo-500"
                     href="#"
                   >
                     <svg
@@ -429,22 +431,22 @@ export default function App() {
               </div>
             </div>
           </div>
-          <div class="mb-8 border-b-2 border-black">
-            <div class="flex flex-col md:flex-row -mb-px">
+          <div className="mb-8 border-b-2 border-black">
+            <div className="flex flex-col md:flex-row -mb-px">
               <a
-                class="inline-block px-2 pb-2 mb-3 md:mb-0 text-lg font-black text-indigo-500 border-b-4 border-indigo-500"
+                className="inline-block px-2 pb-2 mb-3 md:mb-0 text-lg font-black text-indigo-500 border-b-4 border-indigo-500"
                 href="#"
               >
                 Description
               </a>
               <a
-                class="inline-block px-2 pb-2 mb-3 md:mb-0 text-lg font-bold text-black"
+                className="inline-block px-2 pb-2 mb-3 md:mb-0 text-lg font-bold text-black"
                 href="#"
               >
                 Customer Reviews
               </a>
               <a
-                class="inline-block px-2 pb-2 mb-3 md:mb-0 text-lg font-bold text-black"
+                className="inline-block px-2 pb-2 mb-3 md:mb-0 text-lg font-bold text-black"
                 href="#"
               >
                 Shipping &amp; Returns
@@ -452,8 +454,10 @@ export default function App() {
             </div>
           </div>
           <div>
-            <h4 class="text-xl font-black mb-3">Lorem ipsum dolor sit amet</h4>
-            <p class="text-lg font-bold">
+            <h4 className="text-xl font-black mb-3">
+              Lorem ipsum dolor sit amet
+            </h4>
+            <p className="text-lg font-bold">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry&apos;s standard dummy
               text ever since the 1500s, when an unknown printer took a galley

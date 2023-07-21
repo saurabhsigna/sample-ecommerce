@@ -5,39 +5,39 @@ export default function App() {
       data-share=""
       data-category="footers"
       data-component-id="7fd1b1dd_09_awz"
-      class="pt-16 pb-18 bg-black"
+      className="pt-16 pb-18 bg-black"
     >
-      <div class="container mx-auto px-4 ">
-        <div class="max-w-xl mx-auto text-center">
-          <a class="inline-block mb-6" href="https://shuffle.dev/#">
+      <div className="container mx-auto px-4 ">
+        <div className="max-w-xl mx-auto text-center">
+          <a className="inline-block mb-6" href="https://shuffle.dev/#">
             <img
               src="https://shuffle.dev/shopal-assets/logos/shopal-logo-white.svg"
               alt=""
               data-config-id="auto-img-1-9"
             />
           </a>
-          <ul class="flex flex-col md:flex-row mb-8 items-center justify-center">
-            <li class="mb-6 md:mb-0 md:mr-6">
+          <ul className="flex flex-col md:flex-row mb-8 items-center justify-center">
+            <li className="mb-6 md:mb-0 md:mr-6">
               <a
-                class="inline-block text-sm font-bold text-white hover:text-green-500"
+                className="inline-block text-sm font-bold text-white hover:text-green-500"
                 href="https://shuffle.dev/#"
                 data-config-id="auto-txt-1-9"
               >
                 Category
               </a>
             </li>
-            <li class="mb-6 md:mb-0 md:mr-6">
+            <li className="mb-6 md:mb-0 md:mr-6">
               <a
-                class="inline-block text-sm font-bold text-white hover:text-green-500"
+                className="inline-block text-sm font-bold text-white hover:text-green-500"
                 href="https://shuffle.dev/#"
                 data-config-id="auto-txt-2-9"
               >
                 Collection
               </a>
             </li>
-            <li class="mb-6 md:mb-0 md:mr-6">
+            <li className="mb-6 md:mb-0 md:mr-6">
               <a
-                class="inline-block text-sm font-bold text-white hover:text-green-500"
+                className="inline-block text-sm font-bold text-white hover:text-green-500"
                 href="https://shuffle.dev/#"
                 data-config-id="auto-txt-3-9"
               >
@@ -46,7 +46,7 @@ export default function App() {
             </li>
             <li>
               <a
-                class="inline-block text-sm font-bold text-white hover:text-green-500"
+                className="inline-block text-sm font-bold text-white hover:text-green-500"
                 href="https://shuffle.dev/#"
                 data-config-id="auto-txt-4-9"
               >
@@ -54,9 +54,9 @@ export default function App() {
               </a>
             </li>
           </ul>
-          <div class="flex flex-col sm:flex-row items-center justify-center mb-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center mb-6">
             <a
-              class="inline-block text-green-500 hover:text-indigo-500 mb-6 sm:mb-0 sm:mr-6"
+              className="inline-block text-green-500 hover:text-indigo-500 mb-6 sm:mb-0 sm:mr-6"
               href="https://shuffle.dev/#"
             >
               <svg
@@ -92,7 +92,7 @@ export default function App() {
               </svg>
             </a>
             <a
-              class="inline-block text-green-500 hover:text-indigo-500 mb-6 sm:mb-0 sm:mr-6"
+              className="inline-block text-green-500 hover:text-indigo-500 mb-6 sm:mb-0 sm:mr-6"
               href="https://shuffle.dev/#"
             >
               <svg
@@ -128,7 +128,7 @@ export default function App() {
               </svg>
             </a>
             <a
-              class="inline-block text-green-500 hover:text-indigo-500 mb-6 sm:mb-0 sm:mr-6"
+              className="inline-block text-green-500 hover:text-indigo-500 mb-6 sm:mb-0 sm:mr-6"
               href="https://shuffle.dev/#"
             >
               <svg
@@ -164,7 +164,7 @@ export default function App() {
               </svg>
             </a>
             <a
-              class="inline-block text-green-500 hover:text-indigo-500"
+              className="inline-block text-green-500 hover:text-indigo-500"
               href="https://shuffle.dev/#"
             >
               <svg
@@ -183,7 +183,7 @@ export default function App() {
             </a>
           </div>
           <p
-            class="text-sm font-bold text-white pb-8"
+            className="text-sm font-bold text-white pb-8"
             data-config-id="auto-txt-5-9"
           >
             © Copyright 2022. All rights reserved by Shopal UX.

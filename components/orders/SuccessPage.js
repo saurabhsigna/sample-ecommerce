@@ -1,5 +1,6 @@
 "use client";
 import styles from "@styles/product/product.module.css";
+import Link from "next/link";
 import { useEffect } from "react";
 const App = () => {
   useEffect(() => {
@@ -58,7 +59,7 @@ const App = () => {
                 to develop resources continually and integrity them with
                 previous projects.
               </p>
-              <a
+              <Link
                 className="group relative inline-block h-12 w-full sm:w-60 bg-black rounded-md"
                 href="/"
               >
@@ -74,7 +75,7 @@ const App = () => {
                     </span>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

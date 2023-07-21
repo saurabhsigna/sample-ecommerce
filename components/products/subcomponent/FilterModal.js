@@ -1,8 +1,8 @@
 export default function App() {
   return (
-    <div class="group relative h-12 w-52 mr-6 border-2 border-black rounded-md overflow-hidden">
+    <div className="group relative h-12 w-52 mr-6 border-2 border-black rounded-md overflow-hidden">
       <select
-        class="w-full h-full px-4 text-sm font-bold appearance-none outline-none"
+        className="w-full h-full px-4 text-sm font-bold appearance-none outline-none"
         name=""
         id=""
         data-config-id="auto-input-7-2"
@@ -11,7 +11,7 @@ export default function App() {
         <option value="1">Sort by Oldest</option>
         <option value="1">Sort by Price</option>
       </select>
-      <span class="absolute top-1/2 right-0 mr-3 transform -translate-y-1/2 text-black group-hover:text-indigo-500">
+      <span className="absolute top-1/2 right-0 mr-3 transform -translate-y-1/2 text-black group-hover:text-indigo-500">
         <svg
           width="10"
           height="6"

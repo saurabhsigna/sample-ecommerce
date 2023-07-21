@@ -1,8 +1,9 @@
 import styles from "@styles/components/navbar.module.css";
-
+import Link from "next/link";
 export default function App({ showInSM }) {
   return (
-    <div
+    <Link
+      href={`/register`}
       className={`flex items-center gap-[6px] cursor-pointer mr-6 ${styles.textGreen} hover:text-orange-500 transition duration-200 `}
       // href="https://shuffle.dev/#"
     >
@@ -35,6 +36,6 @@ export default function App({ showInSM }) {
       <span className={`text-black ${styles.hideInSmallDeviceShowInLarge}`}>
         Login
       </span>
-    </div>
+    </Link>
   );
 }

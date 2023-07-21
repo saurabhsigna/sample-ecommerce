@@ -13,9 +13,5 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body className={interFont.className}>{children}</body>
-    </html>
-  );
+  return <section className={interFont.className}>{children}</section>;
 }

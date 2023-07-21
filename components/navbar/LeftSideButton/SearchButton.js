@@ -1,8 +1,11 @@
+"use client"
+import Link from "next/link"
 import styles from "@styles/components/navbar.module.css";
 
 export default function App({ showInSM }) {
   return (
-    <div
+    <Link
+    href={'/search'}
       className={`flex items-center gap-[6px] cursor-pointer mr-6 ${styles.textGreen} hover:text-orange-500 transition duration-200 `}
       // href="https://shuffle.dev/#"
     >
@@ -26,6 +29,6 @@ export default function App({ showInSM }) {
       <span className={`text-black ${styles.hideInSmallDeviceShowInLarge}`}>
         Search
       </span>
-    </div>
+    </Link>
   );
 }

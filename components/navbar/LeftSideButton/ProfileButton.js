@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import styles from "@styles/components/navbar.module.css";
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";

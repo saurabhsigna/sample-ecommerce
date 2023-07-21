@@ -9,6 +9,8 @@ import Loader from "@components/minicomponents/Loaders/SimpleLoader";
 import QntyBtn from "@components/cart/subcomponent/QuantityBtn";
 import ProductDiv from "@components/cart/subcomponent/ProductDiv";
 import PromoCode from "@components/cart/subcomponent/PromoCodeSection";
+import Lottie from "lottie-react";
+import EmptyCartLottie from "@public/lottie/empty_cart.json";
 export default function App() {
   const [cartData, setCartData] = useState(null);
   const [isCartLoading, setIsCartLoading] = useState(null);
@@ -78,11 +80,18 @@ export default function App() {
               !isLoading && (
                 <div className="flex items-center justify-center w-full h-[65vh]">
                   {" "}
-                  <img
+                  {/* <img
                     src={"/components/cart/empty_cart.svg"}
                     width={100}
                     height={100}
-                  />
+                  /> */}
+                  <div className="flex items-center flex-col gap-3">
+                    <Lottie
+                      className="h-[230px]"
+                      animationData={EmptyCartLottie}
+                    />
+                    <h2> Add Some Items</h2>
+                  </div>
                 </div>
               )}
 

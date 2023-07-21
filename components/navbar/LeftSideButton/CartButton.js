@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useRecoilValue } from "recoil";
 import { useState, useEffect } from "react";
 import { cartItemsAtom } from "@atoms/CartAtoms";
@@ -12,7 +13,8 @@ export default function App({ showInSM }) {
     setTotalQuantity(netQnty);
   }, [cartItems]);
   return (
-    <div
+    <Link
+      href={"/cart"}
       className={`flex items-center cursor-pointer gap-[6px] mr-6 ${styles.textGreen} hover:text-orange-500 transition duration-200`}
       // href="https://shuffle.dev/#"
     >
@@ -43,6 +45,6 @@ export default function App({ showInSM }) {
       <span className={`text-black ${styles.hideInSmallDeviceShowInLarge}`}>
         Cart
       </span>
-    </div>
+    </Link>
   );
 }

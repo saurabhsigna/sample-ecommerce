@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState, useCallback, useEffect } from "react";
 import SideBar from "@components/navbar/Sidebar";
 import ProfileDropDown from "@components/dropdown/navbar/Profile";
@@ -8,6 +9,10 @@ import CartButton from "@components/navbar/LeftSideButton/CartButton";
 import SearchButton from "@components/navbar/LeftSideButton/SearchButton";
 import styles from "@styles/components/navbar.module.css";
 import AuthButton from "@components/navbar/LeftSideButton/AuthButton";
+import { Sora } from "next/font/google";
+
+const sora = Sora({ subsets: ["latin"], weight: "400", style: "normal" });
+
 import UseUser from "@hooks/UseUser";
 export default function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -19,9 +24,13 @@ export default function App() {
   const { loading, user, loggedIn } = UseUser();
 
   return (
-    <>
+    <main className={sora.className}>
       <div class="isolate fixed w-screen z-[1] max-w-screen">
-        <SideBar isOpen={isSidebarOpen} setOpen={setSidebarOpen} />
+        <SideBar
+          user={user}
+          isOpen={isSidebarOpen}
+          setOpen={setSidebarOpen}
+        />
         <nav
           class="relative z-10 bg-[#fffaf0]"
           data-config-id="toggle-mobile"
@@ -29,16 +38,13 @@ export default function App() {
           data-config-class="hidden"
         >
           <div class="flex h-[3rem] md:h-[4rem] border-black border-b-[2px] py-6 px-6 items-center justify-between bg-transparent relative">
-            <a
-              class="inline-block text-2xl font-bold mr-10"
-              href="https://shuffle.dev/#"
-            >
+            <Link class="inline-block text-2xl font-bold mr-10" href="/">
               <img
                 src="https://shuffle.dev/shopal-assets/logos/shopal-logo.svg"
                 alt=""
                 data-config-id="auto-img-1-1"
               />
-            </a>
+            </Link>
             <ul class="hidden lg:flex items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
               <li class="mr-6">
                 <button
@@ -98,13 +104,13 @@ export default function App() {
                 </a>
               </li>
               <li>
-                <a
+                <Link
                   class="inline-block font-bold text-gray-900 hover:text-indigo-500"
-                  href="https://shuffle.dev/#"
+                  href="/orders/list"
                   data-config-id="auto-txt-8-1"
                 >
                   Your Orders
-                </a>
+                </Link>
               </li>
             </ul>
             <div class="inline-flex items-center">
@@ -160,6 +166,6 @@ export default function App() {
         </nav>
       </div>
       <div className="h-[50px]"></div>
-    </>
+    </main>
   );
 }

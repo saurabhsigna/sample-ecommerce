@@ -8,9 +8,5 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body className={sora.className}>{children}</body>
-    </html>
-  );
+  return <section className={sora.className}>{children}</section>;
 }

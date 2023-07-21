@@ -1,4 +1,5 @@
 "use client";
+import Skeleton from "@components/checkoutPage/addressPageCheckout/loading/SavedAddressSkeleton";
 import styles from "@styles/components/checkout/AddressPage.module.css";
 import PriceBox from "@components/checkoutPage/subcomponent/PriceBox";
 import { createAddress } from "@requests/createAddress";
@@ -14,7 +15,9 @@ export default function App({ setOk, setAddressId, addressId }) {
   const [addressResponse, setAddressResponse] = useState("");
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [addressType,setAddressType] = useState("")
   const [errorMsg, setErrorMsg] = useState("");
+
 
   const locality = "Derapur";
   const pinCode = "209301";
@@ -101,8 +104,15 @@ export default function App({ setOk, setAddressId, addressId }) {
                 </h2>
               )}
               {showAddressForm && (
-                <button onClick={handleFormShowingClosed}>
-                  {"<- "} Select Saved Address
+                <button
+                  className="flex gap-1 mb-[7px] items-center"
+                  onClick={handleFormShowingClosed}
+                >
+                  <img
+                    src={`/components/checkout/go_back.svg`}
+                    className="w-[14px]"
+                  />{" "}
+                  Go Back
                 </button>
               )}
               <h3
@@ -111,12 +121,48 @@ export default function App({ setOk, setAddressId, addressId }) {
                 Add New Address :
               </h3>
               {!showAddressForm && (
-                <button onClick={handleFormShowing}>
-                  Click Here for new Address
+                <button
+                  onClick={handleFormShowing}
+                  className="group mt-1 relative inline-block h-12 w-[40%] bg-black rounded-md"
+                >
+                  <div className="absolute top-0 left-0 transform -translate-y-1 -translate-x-1 w-full h-full group-hover:translate-y-0  group-hover:translate-x-0 transition duration-300">
+                    <div
+                      className={`flex h-full w-full items-center justify-center active:bg-blue-500 bg-white  border-2 border-black rounded-md`}
+                    >
+                      {btnText == "Loading" && (
+                        <ButtonSpinner color={"black"} />
+                      )}{" "}
+                      <span
+                        className={`text-base font-black text-black ${styles.satoshi}`}
+                      >
+                        Click To Add Address
+                      </span>
+                    </div>
+                  </div>
                 </button>
               )}
               {showAddressForm && (
                 <form onSubmit={handleSubmit}>
+                  <div className="flex my-6 mx-auto items-center justify-around">
+                    <button className="mx-4">
+                      <div className="flex flex-col gap-2 items-center">
+                        <img
+                          src={`/components/checkout/address/home.svg`}
+                          className="w-[32px] lg:w-[48px]"
+                        />
+                      </div>
+                      <span> Home Address</span>
+                    </button>
+                    <button className="mx-4">
+                      <div className="flex flex-col gap-2 items-center">
+                        <img
+                          src={`/components/checkout/address/school.svg`}
+                          className="w-[32px] lg:w-[48px]"
+                        />
+                      </div>
+                      <span> School Address</span>
+                    </button>
+                  </div>
                   <div className="flex flex-wrap -mx-4 mb-6">
                     <div className="w-full md:w-1/2 px-4 mb-6 md:mb-0">
                       <label
@@ -140,7 +186,7 @@ export default function App({ setOk, setAddressId, addressId }) {
                     <div className="w-full md:w-1/2 px-4">
                       <label
                         className={`block text-sm font-bold mb-2 ${styles.satoshi}`}
-                        htmlFor="last-name"
+                        htmlFor="phone-number"
                       >
                         Phone Number
                       </label>
@@ -238,15 +284,13 @@ export default function App({ setOk, setAddressId, addressId }) {
                 </form>
               )}
 
-              {!showAddressForm && (
-                <h2
-                  className={`text-center text-xl  my-8 font-black text-black ${styles.satoshi}`}
-                >
-                  OR
-                </h2>
-              )}
-              {!showAddressForm && (
+              {!showAddressForm && address && (
                 <>
+                  <h2
+                    className={`text-center text-xl  my-8 font-black text-black ${styles.satoshi}`}
+                  >
+                    OR
+                  </h2>
                   <SavedAddress
                     setAddressId={setAddressId}
                     addresses={address}

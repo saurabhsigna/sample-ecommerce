@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 import styles from "@styles/components/login/login.module.css";
 import dynamic from "next/dynamic";
 import { login } from "@requests/login";
@@ -76,7 +77,7 @@ const SignInSection = () => {
   };
 
   return (
-    <section className="relative py-20 bg-[#292929]">
+    <main className="relative py-20 bg-[#292929]">
       <div className="hidden md:block absolute top-0 right-0 w-2/12 xl:w-4/12 h-full bg-white"></div>
       <div className="relative container px-4 mx-auto">
         <div className="max-w-xl lg:max-w-6xl mx-auto">
@@ -98,6 +99,15 @@ const SignInSection = () => {
                   Pellentesque massa nibh, pulvinar vitae aliquet nec, accumsan
                   aliquet orci.
                 </p>
+                <div className=" lg:block mt-4 lg:mt-7 text-lg font-bold text-white">
+                  Are You A New Customer ,{" "}
+                  <Link
+                    className={`inline-block font-bold hover:text-indigo-700 underline text-[#cdfd63]`}
+                    href="/register"
+                  >
+                    Register Here
+                  </Link>
+                </div>
               </div>
             </div>
             <div className="w-full xl:w-auto px-4">
@@ -272,7 +282,7 @@ const SignInSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </main>
   );
 };
 

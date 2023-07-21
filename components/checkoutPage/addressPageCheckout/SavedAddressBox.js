@@ -1,5 +1,6 @@
 "use client";
 import styles from "@styles/components/checkout/AddressPage.module.css";
+import Skeleton from "@components/checkoutPage/addressPageCheckout/loading/SavedAddressSkeleton";
 
 import { useState, useCallback } from "react";
 export default function App({ addresses, setAddressId, loading }) {
@@ -16,13 +17,20 @@ export default function App({ addresses, setAddressId, loading }) {
   return (
     <div className={``}>
       <h2 className={`text-2xl 2xl:text-3xl font-bold mb-2 ${styles.satoshi}`}>
-        Saved Addresses {addresses && addresses.length} :
+        Saved Addresses ({addresses ? addresses.length : "0"}) :
       </h2>
-      <p className="mb-4">
-        {" "}
-        <span className="text-xl ">࿋ </span>Click The final address
-      </p>
-      {loading && <h2>Loading...</h2>}
+      {addresses && (
+        <p className="mb-4">
+          {" "}
+          <span className="text-xl ">࿋ </span>Click The final address
+        </p>
+      )}
+      {loading && (
+        <div>
+          <Skeleton />
+          <Skeleton />
+        </div>
+      )}
       {addresses &&
         addresses.map((address, index) => (
           <div
