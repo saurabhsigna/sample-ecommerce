@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import styles from "@styles/components/login/login.module.css";
 import dynamic from "next/dynamic";
 import { login } from "@requests/login";
@@ -11,6 +12,8 @@ const PasswordChecklist = dynamic(() => import("react-password-checklist"), {
   ssr: false,
 });
 const SignInSection = () => {
+  const searchParams = useSearchParams();
+
   //UI state
   const [showPassword, setShowPassword] = useState(false);
   const [usePhoneNumber, setUsePhoneNumber] = useState(false);
@@ -52,7 +55,6 @@ const SignInSection = () => {
       const tokens = response.message;
       console.log(tokens);
       setCookie("accessToken", tokens.access_token, {
-        // httpOnly: true,
         maxAge: 60 * 60 * 6,
         sameSite: "strict",
         secure: true,
@@ -64,6 +66,11 @@ const SignInSection = () => {
       });
       setDisableBtn(false);
       setBtnText("You Are Logged In");
+      if (searchParams.get("path")) {
+        window.location.href = searchParams.get("path");
+      } else {
+        window.location.href = "/";
+      }
     } catch (error) {
       const errorMessage = error.message || "An error occurred";
       console.log(errorMessage);

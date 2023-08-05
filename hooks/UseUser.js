@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import { getCookie, setCookie } from "cookies-next"; // Import parseCookies and setCookie from the cookies-next package
-
+import { userInfoAtom } from "@atoms/UserInfoAtom";
+import { useSetRecoilState } from "recoil";
 const refreshAccessToken = async (refreshToken) => {
   try {
     const response = await fetch(
@@ -85,10 +86,12 @@ export const getUser = async (
 export default function useUser() {
   const accessToken = getCookie("accessToken");
   const refreshToken = getCookie("refreshToken");
+  const setUserInfo = useSetRecoilState(userInfoAtom);
   console.log("inseide useUser");
   console.log(accessToken);
   const { data, mutate, error } = useSWR(
-    `${process.env.NEXT_PUBLIC_BACKEND_URI}/api/user/me`,
+    accessToken ? `${process.env.NEXT_PUBLIC_BACKEND_URI}/api/user/me` : null,
+
     (url) => getUser(url, accessToken, refreshToken),
     {
       revalidateOnFocus: false,
@@ -98,7 +101,14 @@ export default function useUser() {
     }
   );
 
-  const loading = !data && !error;
+  if (data) {
+    console.log("data is of user is ");
+    console.log(data);
+    setUserInfo(data);
+  } else {
+    setUserInfo(null);
+  }
+  const loading = !data && !error && accessToken;
   const loggedIn = !error && data;
 
   return {

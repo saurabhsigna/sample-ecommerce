@@ -23,11 +23,21 @@ const item = {
   },
 };
 
-let classes = [9, 10, 11, 12, "reference"];
-
+let classes = [
+  { category: "class_9", label: "NCERT", name: "Class 9" },
+  { category: "class_10", label: "NCERT", name: "Class 10" },
+  { category: "class_11", label: "NCERT", name: "Class 11" },
+  { category: "class_12", label: "NCERT", name: "Class 12" },
+  {
+    category: "reference_board",
+    label: "Reference Books",
+    name: "Board Reference",
+  },
+  { category: "jee_neet", label: "JEE & NEET", name: "JEE & NEET" },
+];
 export default function App() {
   const controls = useAnimation();
-  const [ref, inView] = useInView();
+  const [ref, inView] = useInView({ trackVisibility: true, delay: 100 });
 
   useEffect(() => {
     if (inView) {
@@ -36,7 +46,7 @@ export default function App() {
   }, [controls, inView]);
 
   return (
-    <section className="py-16 bg-white">
+    <section ref={ref} className="py-16 bg-white">
       <div className="px-4 mx-auto container">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -44,14 +54,13 @@ export default function App() {
             variants={container}
             initial="hidden"
             animate={controls}
-            ref={ref}
           >
-            {classes.map((classCategory, index) => (
+            {classes.map(({ category, label, name }, index) => (
               <motion.div key={index} className="item" variants={item}>
                 <SingleBanner
-                  label={"NCERT"}
-                  name={"Class 11"}
-                  href={`/`}
+                  label={label}
+                  name={name}
+                  href={`/products/${category}`}
                   image={`https://images.unsplash.com/photo-1534083220759-4c3c00112ea0`}
                 />
               </motion.div>

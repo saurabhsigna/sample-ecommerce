@@ -5,6 +5,9 @@ import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 const Navbar = dynamic(() => import("@components/navbar/Navbar"), {
   ssr: false,
 });
+const Footer = dynamic(() => import("@components/footer/Footer"), {
+  ssr: false,
+});
 import { RecoilRoot } from "recoil";
 
 export default function Providers({ children }) {
@@ -18,6 +21,7 @@ export default function Providers({ children }) {
       />
       <Navbar />
       {children}
+      <Footer />
     </RecoilRoot>
   );
 }

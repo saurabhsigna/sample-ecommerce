@@ -18,7 +18,7 @@ export default function App({ product }) {
         <div className="w-full lg:w-2/3 px-4">
           <div>
             <h4
-              className=" text-2xl  font-bold text-black mb-1"
+              className=" text-2xl  hover:text-blue-600 font-bold text-black mb-1"
               data-config-id="auto-txt-30-2"
             >
               {product?.name}

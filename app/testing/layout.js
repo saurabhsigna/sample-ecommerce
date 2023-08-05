@@ -4,7 +4,7 @@ const interFont = Inter({
   style: "normal",
   subsets: ["latin"],
   display: "swap",
-  weight: "700",
+  weight: ["300", "500", "600", "700"],
 });
 
 export const metadata = {

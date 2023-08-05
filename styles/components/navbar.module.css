@@ -29,3 +29,13 @@
   --tw-shadow: 4px 4px 0px #1d1d1d;
   box-shadow: 0 0 #0000, 0 0 #0000, var(--tw-shadow);
 }
+
+.active {
+  top: 0px;
+  transition: 0.3s linear;
+}
+
+.hidden {
+  top: -80px;
+  transition: 0.3s linear;
+}

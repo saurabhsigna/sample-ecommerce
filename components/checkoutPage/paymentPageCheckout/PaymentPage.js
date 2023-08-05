@@ -8,7 +8,7 @@ import Spinner from "@components/minicomponents/Spinners/InsideButtonSpinner";
 import Product from "@components/checkoutPage/orderSummaryPageCheckout/Product";
 import WhatsInTheBag from "@components/checkoutPage/orderSummaryPageCheckout/WhatsInTheBag";
 import { createPaymentLink } from "@requests/buyOnlineStripe";
-export default function App({ setOk }) {
+export default function App({ setOk, products }) {
   const [paymentMethod, setPaymentMethod] = useState("COD");
   const [errorMsg, setErrorMsg] = useState("");
   const cartItems = useRecoilValue(cartItemsAtom);
@@ -120,7 +120,7 @@ export default function App({ setOk }) {
                 </button>
               </form>
             </div>
-            <PriceBox />
+            <PriceBox products={products} />
           </div>
         </div>
       </div>

@@ -3,7 +3,13 @@
 import styles from "@styles/cart/cart.module.css";
 import RemoveButton from "@components/cart/subcomponent/RemoveButton";
 import QntyBtn from "@components/cart/subcomponent/QuantityBtn";
-export default function App({ product, quantity, onRemove }) {
+export default function App({
+  product,
+  quantity,
+  onRemove,
+  addQuantity,
+  lessQuantity,
+}) {
   return (
     <div name="productDiv" className="mb-6">
       <div className="w-full overflow-hidden relative border-b-2 border-black">
@@ -18,7 +24,12 @@ export default function App({ product, quantity, onRemove }) {
                 className={` max-h-full h-full w-full object-cover  max-w-full rounded-md`}
               />
             </div>
-            <QntyBtn quantity={quantity} />
+            <QntyBtn
+              quantity={quantity}
+              addQnty={addQuantity}
+              lessQnty={lessQuantity}
+              productId={product?.id}
+            />
           </div>
           <div name="productInfo" className="">
             <div className={`flex gap-4`}>
@@ -38,7 +49,7 @@ export default function App({ product, quantity, onRemove }) {
             <h2
               className={`text-xl lg:text-2xl font-semibold mt-[5px] ml-[10px]`}
             >
-              ₹ {product?.price}
+              ₹ {product?.price} {quantity > 1 ? " x " + quantity : null}
             </h2>
             <p
               className={`${styles.showInSmallDeviceHideInTablet} font-light text-sm italic`}
@@ -69,7 +80,7 @@ export default function App({ product, quantity, onRemove }) {
           </div>
         </div>
         <div className={`${styles.showInSmallDeviceHideInTablet} `}>
-          <div className={`flex items-center justify-between mt-4`}>
+          <div className={`flex items-center justify-end mt-4`}>
             {/* <button
               className={` ml-[20px] py-2 px-4 mb-4 font-bold border-2 border-gray-900 rounded-md text-gray-900 ${styles.greenBg}`}
               data-config-id="auto-txt-26-1"

@@ -25,3 +25,18 @@ body {products/11
     )
     rgb(var(--background-start-rgb));
 } */
+
+.textGreenLight {
+  color: #cdfd63;
+}
+.greenBg {
+  background-color: rgba(198, 255, 83, 1);
+}
+.textGreenDark {
+  color: rgba(97, 206, 1, 1);
+}
+
+.shadowBlack {
+  --tw-shadow: 4px 4px 0px #1d1d1d;
+  box-shadow: 0 0 #0000, 0 0 #0000, var(--tw-shadow);
+}

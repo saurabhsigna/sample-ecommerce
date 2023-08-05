@@ -11,6 +11,7 @@ import ProductDiv from "@components/cart/subcomponent/ProductDiv";
 import PromoCode from "@components/cart/subcomponent/PromoCodeSection";
 import Lottie from "lottie-react";
 import EmptyCartLottie from "@public/lottie/empty_cart.json";
+import OfferInfo from "@components/cart/subcomponent/OfferInfo";
 export default function App() {
   const [cartData, setCartData] = useState(null);
   const [isCartLoading, setIsCartLoading] = useState(null);
@@ -32,8 +33,7 @@ export default function App() {
   };
 
   const cartItems = useRecoilValue(cartItemsAtom);
-  console.log("cartItems");
-  console.log(cartItems);
+
   let body = JSON.stringify({ cartItems: cartItems });
   const { data, error, isLoading } = useSWR(
     `${process.env.NEXT_PUBLIC_BACKEND_URI}/api/cart/fetchcart`,
@@ -61,6 +61,32 @@ export default function App() {
       (item) => item.product.id !== productId
     );
     setCartData(updatedCartData);
+  };
+
+  const addQuantityBtn = (productId, changeBy1) => {
+    const updatedCart = cartData.map((item) => {
+      if (item.product.id === productId) {
+        // Ensure the new quantity doesn't go below 0 or exceed the stock limit
+        const newQuantity = item.quantity + changeBy1;
+        console.log("quantisf ", newQuantity);
+        return { ...item, quantity: newQuantity };
+      }
+      return item;
+    });
+    console.log(updatedCart);
+    setCartData(updatedCart);
+  };
+
+  const lessQuantityBtn = (productId, changeBy1) => {
+    const updatedCart = cartData.map((item) => {
+      if (item.product.id === productId) {
+        // Ensure the new quantity doesn't go below 0 or exceed the stock limit
+        const newQuantity = Math.max(item.quantity - changeBy1, 0);
+        return { ...item, quantity: newQuantity };
+      }
+      return item;
+    });
+    setCartData(updatedCart);
   };
 
   return (
@@ -105,14 +131,20 @@ export default function App() {
                       key={index}
                       product={product.product}
                       quantity={product.quantity}
+                      lessQuantity={lessQuantityBtn}
+                      addQuantity={addQuantityBtn}
                       onRemove={() => handleRemoveItem(product.product.id)} // Pass the product ID to handleRemoveItem
                     />
                   ))}
-
+                {cartData && cartData.length > 0 && (
+                  <OfferInfo products={cartData} />
+                )}
                 {cartData && cartData.length > 0 && <PromoCode />}
               </div>
             </div>
-            {cartData && cartData.length > 0 && <PriceBoard />}
+            {cartData && cartData.length > 0 && (
+              <PriceBoard products={cartData} />
+            )}
           </div>
         </div>
       </div>

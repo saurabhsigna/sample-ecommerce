@@ -6,7 +6,7 @@ import Product from "@components/checkoutPage/orderSummaryPageCheckout/Product";
 import WhatsInTheBag from "@components/checkoutPage/orderSummaryPageCheckout/WhatsInTheBag";
 import { cartItemsAtom } from "@/atoms/CartAtoms";
 import { useRecoilValue } from "recoil";
-export default function App({ setOk }) {
+export default function App({ setOk,products }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setOk(true);
@@ -84,7 +84,7 @@ export default function App({ setOk }) {
                 </button>
               </form>
             </div>
-            <PriceBox />
+            <PriceBox products={products} />
           </div>
         </div>
       </div>

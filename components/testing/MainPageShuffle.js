@@ -4,6 +4,7 @@ import Link from "next/link";
 import Navbar from "@components/navbar/Navbar";
 import ProfileDropDown from "@components/dropdown/navbar/Profile";
 import styles from "@styles/components/navbar.module.css";
+import Inverted from "@components/minicomponents/inverted/Component";
 export default function App() {
   return (
     <>
@@ -100,7 +101,7 @@ export default function App() {
             </div>
           </div>
         </div>
-        <div className="lg:hidden flex flex-wrap justify-between mt-32">
+        <div className="lg:hidden  flex flex-wrap justify-between mt-32">
           <div className="w-full md:w-1/2 lg:w-1/3 mb-8 sm:mb-0">
             <div className="relative max-w-xs">
               <img
@@ -110,11 +111,14 @@ export default function App() {
                 data-config-id="auto-img-6-1"
               />
               <img
-                className="absolute top-0 left-0 -mt-16 px-4 md:ml-6 img-fluid"
+                className="hidden md:block absolute top-0 left-0 -mt-16 px-4 md:ml-6 img-fluid"
                 src="https://shuffle.dev/shopal-assets/images/placeholder-photo1.png"
                 alt=""
                 data-config-id="auto-img-7-1"
               />
+              <div className="md:hidden absolute top-0 left-0 -mt-16 px-4 md:ml-6 img-fluid">
+                <Inverted />
+              </div>
             </div>
           </div>
           <div className="w-full md:w-1/2 lg:w-1/3">
@@ -126,11 +130,14 @@ export default function App() {
                 data-config-id="auto-img-8-1"
               />
               <img
-                className="absolute bottom-0 right-0 px-4 md:mr-6 -mb-24 img-fluid"
+                className="hidden md:block absolute bottom-0 right-0 px-4 md:mr-6 -mb-24 img-fluid"
                 src="https://shuffle.dev/shopal-assets/images/placeholder-photo2.png"
                 alt=""
                 data-config-id="auto-img-9-1"
               />
+              <div className=" md:hidden absolute bottom-0 right-0 px-4 md:mr-6 -mb-24 img-fluid">
+                <Inverted />
+              </div>
             </div>
           </div>
         </div>

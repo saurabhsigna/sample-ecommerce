@@ -3,7 +3,7 @@ const nextConfig = {
   experimental: {
     // runtime: "edge",
   },
-  reactStrictMode: true,
+  reactStrictMode: false,
   swcMinify: true,
 };
 

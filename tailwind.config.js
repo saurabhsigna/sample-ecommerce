@@ -8,7 +8,10 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        "largeMobile": "489px",
+        largeMobile: "489px",
+      },
+      colors: {
+        Green: "#cdfd63",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

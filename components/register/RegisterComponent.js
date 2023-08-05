@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { useSearchParams, useRouter } from "next/navigation";
 import styles from "@styles/components/login/login.module.css";
 import dynamic from "next/dynamic";
 import Spinner from "@components/minicomponents/Spinners/InsideButtonSpinner";
@@ -12,6 +13,8 @@ const PasswordChecklist = dynamic(() => import("react-password-checklist"), {
 });
 
 export default function App() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
   //UI state
   const [mutate, setMutate] = useState(false);
   useEffect(() => {
@@ -31,6 +34,12 @@ export default function App() {
   const [errorMsg, setErrorMsg] = useState("");
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
+  };
+
+  const handleLoginButton = () => {
+    let currentPath = searchParams.get("path");
+
+    router.push(`/login?path=${currentPath ? currentPath : "/"}`);
   };
 
   const handleSubmit = async (e) => {
@@ -59,6 +68,11 @@ export default function App() {
       });
       setDisableBtn(false);
       setBtnText("You Are Registered");
+      if (searchParams.get("path")) {
+        window.location.href = searchParams.get("path");
+      } else {
+        window.location.href = "/";
+      }
     } catch (error) {
       const errorMessage = error.message || "An error occurred";
       console.log(errorMessage);
@@ -253,12 +267,13 @@ export default function App() {
                 <span className="text-sm font-bold">
                   Already have an account?
                 </span>
-                <Link
+                <button
+                  type="button"
                   className="inline-block text-sm font-bold text-indigo-500 hover:text-indigo-700 underline"
-                  href="/login"
+                  onClick={handleLoginButton}
                 >
                   Sign In
-                </Link>
+                </button>
               </p>
             </form>
             <div className="lg:hidden mt-16">

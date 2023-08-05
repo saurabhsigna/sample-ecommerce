@@ -48,7 +48,7 @@
 
 .sliderContainer {
   /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); */
-  height: 353px;
+  height: 370px;
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -63,7 +63,7 @@
 
 .sliderContainer .slider__slide {
   height: 100%;
-  flex-grow: 1;
+  /* flex-grow: 1; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,11 +73,17 @@
 }
 
 .sliderContainer .slider__slide:hover {
-  background: rgba(0, 0, 0, 0.8);
+  /* background: rgba(0, 0, 0, 0.8); */
   cursor: pointer;
 }
 
 .sliderContainer .slider__slide .slide__content {
   color: black;
   font-size: 80px;
+}
+
+.price {
+  border-top: 10px solid whitesmoke;
+  border-right: 10px solid whitesmoke;
+  border-top-right-radius: 25px;
 }

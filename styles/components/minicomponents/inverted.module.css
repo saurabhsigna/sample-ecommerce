@@ -1,0 +1,95 @@
+.card {
+  position: relative;
+  max-width: 256px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  background: navy;
+  border-radius: 15px;
+  border-top-left-radius: 0;
+  border-top: 10px solid #474bc5;
+}
+
+.imgBox {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-height: 330px;
+  background: red;
+  border-radius: 15px;
+  background-size: cover;
+}
+
+.price {
+  position: absolute;
+  height: 80px;
+  top: -80px;
+  width: 40%;
+  background: navy;
+  border-top: 10px solid #474bc5;
+  border-right: 10px solid #474bc5;
+  border-top-right-radius: 25px;
+}
+
+.price::before {
+  content: "";
+  width: 25px;
+  bottom: 0;
+  right: -25px;
+  height: 25px;
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: -10px 10px 0 navy;
+}
+
+.price::after {
+  content: "";
+  /* top: 0;
+  left: 0; */
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: -10px -10px 0 #474bc5;
+}
+
+.imgBox::after {
+  content: "";
+  /* top: 0; */
+  left: 0;
+  bottom: 70px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: -10px 10px 0 #474bc5;
+}
+.imgBox::before {
+  content: "";
+  /* top: 0; */
+  left: 40%;
+  bottom: 0px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: -10px 10px 0 #474bc5;
+}
+
+.imgStyle {
+  width: 100%;
+  height: auto;
+  max-height: 330px;
+
+  border-radius: 15px;
+  background-size: cover;
+}

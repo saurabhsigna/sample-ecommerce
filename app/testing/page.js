@@ -1,27 +1,24 @@
 import dynamic from "next/dynamic";
-const MainPage = dynamic(
-  () => import("../../components/testing/MainPageShuffle"),
-  {
-    ssr: false,
-  }
-);
-
-const Banner = dynamic(() => import("@components/banners/BannersComponent"), {
-  ssr: false,
-});
-const Scroll = dynamic(() => import("../../components/testing/animation/New"), {
-  ssr: false,
-});
-// import MainPage from "../../components/testing/MainPageShuffle";
+import Carousel from "@components/carousel/mainPage/embla/Embla";
+import Banner from "@components/banners/CategoryBanner/CategoryPageComponent";
+import Scroll from "@components/testing/animation/New";
+import MainPage from "../../components/testing/MainPageShuffle";
+import BenefitsBanner from "@components/benefits/BenefitsBanner";
 // import MainPage from "../../components/testing/MainPageShuffleCode";
-import Footer from "@components/footer/Footer";
+import ComingSoon from "@components/banners/announce/ComingSoon";
+import AboutMe from "@components/about_me/MyInfo";
+import NewlyAddedProduct from "@components/products/mainPage/newlyAdded/Component";
 export default function App() {
   return (
     <>
       <MainPage />
+      <BenefitsBanner />
+      <Carousel />
       <Scroll />
+      <ComingSoon />
       <Banner />
-      <Footer />
+      <NewlyAddedProduct />
+      <AboutMe />
     </>
   );
 }

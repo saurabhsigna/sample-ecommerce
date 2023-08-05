@@ -7,7 +7,8 @@ import SavedAddress from "@components/checkoutPage/addressPageCheckout/SavedAddr
 import UseFetchAllAddress from "@hooks/UseFetchAllAddress";
 import { useState, useCallback, useEffect, useMemo } from "react";
 import ButtonSpinner from "@components/minicomponents/Spinners/InsideButtonSpinner";
-export default function App({ setOk, setAddressId, addressId }) {
+
+export default function App({ setOk, setAddressId, addressId, products }) {
   const [disableBtn, setDisableBtn] = useState(false);
   const [btnText, setBtnText] = useState("Confirm Address");
   const [showAddressForm, setShowAddressForm] = useState(false);
@@ -15,9 +16,8 @@ export default function App({ setOk, setAddressId, addressId }) {
   const [addressResponse, setAddressResponse] = useState("");
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [addressType,setAddressType] = useState("")
+  const [addressType, setAddressType] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-
 
   const locality = "Derapur";
   const pinCode = "209301";
@@ -71,8 +71,10 @@ export default function App({ setOk, setAddressId, addressId }) {
     setShowAddressForm(false);
   }, [setShowAddressForm]);
   const handleAddressOfSaved = useCallback(() => {
-    setOk(true);
-  }, [setOk]);
+    if (addressId) {
+      setOk(true);
+    }
+  }, [setOk, addressId]);
   return (
     <div className="py-20">
       <div className="container px-4 mx-auto">
@@ -123,7 +125,7 @@ export default function App({ setOk, setAddressId, addressId }) {
               {!showAddressForm && (
                 <button
                   onClick={handleFormShowing}
-                  className="group mt-1 relative inline-block h-12 w-[40%] bg-black rounded-md"
+                  className="group mt-1 relative inline-block h-12 w-[55%] lg:w-[40%] bg-black rounded-md"
                 >
                   <div className="absolute top-0 left-0 transform -translate-y-1 -translate-x-1 w-full h-full group-hover:translate-y-0  group-hover:translate-x-0 transition duration-300">
                     <div
@@ -284,7 +286,7 @@ export default function App({ setOk, setAddressId, addressId }) {
                 </form>
               )}
 
-              {!showAddressForm && address && (
+              {!showAddressForm && (
                 <>
                   <h2
                     className={`text-center text-xl  my-8 font-black text-black ${styles.satoshi}`}
@@ -296,29 +298,31 @@ export default function App({ setOk, setAddressId, addressId }) {
                     addresses={address}
                     loading={loading}
                   />
-                  <button
-                    onClick={handleAddressOfSaved}
-                    className="group mt-10 relative inline-block h-12 w-full bg-black rounded-md"
-                  >
-                    <div className="absolute top-0 left-0 transform -translate-y-1 -translate-x-1 w-full h-full group-hover:translate-y-0  group-hover:translate-x-0 transition duration-300">
-                      <div
-                        className={`flex h-full w-full items-center justify-center active:bg-blue-500 bg-white  border-2 border-black rounded-md`}
-                      >
-                        {btnText == "Loading" && (
-                          <ButtonSpinner color={"black"} />
-                        )}{" "}
-                        <span
-                          className={`text-base font-black text-black ${styles.satoshi}`}
+                  {address && address.length > 0 && (
+                    <button
+                      onClick={handleAddressOfSaved}
+                      className="group mt-10 relative inline-block h-12 w-full bg-black rounded-md"
+                    >
+                      <div className="absolute top-0 left-0 transform -translate-y-1 -translate-x-1 w-full h-full group-hover:translate-y-0  group-hover:translate-x-0 transition duration-300">
+                        <div
+                          className={`flex h-full w-full items-center justify-center active:bg-blue-500 bg-white  border-2 border-black rounded-md`}
                         >
-                          {btnText}
-                        </span>
+                          {btnText == "Loading" && (
+                            <ButtonSpinner color={"black"} />
+                          )}{" "}
+                          <span
+                            className={`text-base font-black text-black ${styles.satoshi}`}
+                          >
+                            {btnText}
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  </button>
+                    </button>
+                  )}
                 </>
               )}
             </div>
-            <PriceBox />
+            <PriceBox products={products} />
           </div>
         </div>
       </div>

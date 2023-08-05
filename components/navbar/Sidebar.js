@@ -2,11 +2,40 @@
 import Link from "next/link";
 import { useCallback } from "react";
 import { XMarkIcon } from "@heroicons/react/24/solid";
+import SpinnerLoading from "@components/minicomponents/Loaders/SimpleLoader";
 import styles from "@styles/components/navbar.module.css";
-export default function App({ isOpen, setOpen, user }) {
+import { useRouter } from "next/navigation";
+export default function App({ isOpen, setOpen, user, isLoading }) {
   const handleSidebarByButton = useCallback(() => {
     setOpen(false);
   }, [setOpen]);
+
+  let categories = [
+    { name: "Boards Reference", href: "/testing" },
+    { name: "Class 9-12", href: "/testing" },
+    { name: "JEE & NEET", href: "/testing" },
+  ];
+  let pages = [
+    { name: "About", href: "/about" },
+    { name: "contact", href: "/contact" },
+    { name: "Terms & Co.", href: "/tmc" },
+  ];
+
+  const router = useRouter();
+
+  const handleRegisterButton = () => {
+    let currentPath = window.location.pathname;
+
+    router.push(`/register?path=${currentPath}`);
+    handleSidebarByButton();
+  };
+
+  const handleLoginButton = () => {
+    let currentPath = window.location.pathname;
+
+    router.push(`/login?path=${currentPath}`);
+    handleSidebarByButton();
+  };
 
   return (
     <div
@@ -56,30 +85,17 @@ export default function App({ isOpen, setOpen, user }) {
                     fill="currentColor"
                   ></path>
                 </svg>
-                <div
-                  className={`hidden group-hover:block w-full pt-2 px-2 ${styles.shadowBlack}`}
-                >
-                  <a
-                    className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
-                    href="https://shuffle.dev/#"
-                    data-config-id="auto-txt-37-1"
-                  >
-                    Category 1
-                  </a>
-                  <a
-                    className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
-                    href="https://shuffle.dev/#"
-                    data-config-id="auto-txt-38-1"
-                  >
-                    Category 1
-                  </a>
-                  <a
-                    className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
-                    href="https://shuffle.dev/#"
-                    data-config-id="auto-txt-39-1"
-                  >
-                    Category 1
-                  </a>
+                <div className={`hidden group-hover:block w-full pt-2 px-2 `}>
+                  {categories.map((category, index) => (
+                    <a
+                      key={index}
+                      className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                      href="https://shuffle.dev/#"
+                      data-config-id="auto-txt-37-1"
+                    >
+                      {category.name}
+                    </a>
+                  ))}
                 </div>
               </button>
             </li>
@@ -104,27 +120,16 @@ export default function App({ isOpen, setOpen, user }) {
                   ></path>
                 </svg>
                 <div className="hidden group-hover:block w-full pt-2 px-2">
-                  <a
-                    className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
-                    href="https://shuffle.dev/#"
-                    data-config-id="auto-txt-41-1"
-                  >
-                    Category 1
-                  </a>
-                  <a
-                    className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
-                    href="https://shuffle.dev/#"
-                    data-config-id="auto-txt-42-1"
-                  >
-                    Category 1
-                  </a>
-                  <a
-                    className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
-                    href="https://shuffle.dev/#"
-                    data-config-id="auto-txt-43-1"
-                  >
-                    Category 1
-                  </a>
+                  {pages.map((page, index) => (
+                    <a
+                      key={index}
+                      className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
+                      href="https://shuffle.dev/#"
+                      data-config-id="auto-txt-41-1"
+                    >
+                      {page.name}
+                    </a>
+                  ))}
                 </div>
               </button>
             </li>
@@ -156,6 +161,7 @@ export default function App({ isOpen, setOpen, user }) {
                   >
                     Category 1
                   </a>
+
                   <a
                     className="block p-2 text-sm font-bold text-black hover:text-indigo-500"
                     href="https://shuffle.dev/#"
@@ -213,11 +219,15 @@ export default function App({ isOpen, setOpen, user }) {
                   Log Out
                 </Link>
               </div>
+            ) : isLoading ? (
+              <div className="w-full flex items-center justify-center mb-2">
+                <SpinnerLoading />
+              </div>
             ) : (
               <div>
                 <Link
                   href={"/login"}
-                  onClick={handleSidebarByButton}
+                  onClick={handleLoginButton}
                   className={`block text-center w-full py-4 px-4 mb-4 font-bold border-2 border-gray-900 rounded-md ${styles.shadowBlack}`}
                   data-config-id="auto-txt-25-1"
                 >
@@ -225,7 +235,7 @@ export default function App({ isOpen, setOpen, user }) {
                 </Link>
                 <Link
                   href={"/register"}
-                  onClick={handleSidebarByButton}
+                  onClick={handleRegisterButton}
                   className={`block text-center w-full py-4 px-4 mb-8 font-bold border-2 border-gray-900 rounded-md ${styles.shadowBlack} text-gray-900 ${styles.greenBg}`}
                   data-config-id="auto-txt-26-1"
                 >

@@ -1,7 +1,8 @@
 "use client";
 import styles from "@styles/components/checkout/AddressPage.module.css";
 import Skeleton from "@components/checkoutPage/addressPageCheckout/loading/SavedAddressSkeleton";
-
+import Lottie from "lottie-react";
+import FillAddress from "@public/lottie/fill_address.json";
 import { useState, useCallback } from "react";
 export default function App({ addresses, setAddressId, loading }) {
   const [selectedAddress, setSelectedAddress] = useState(null);
@@ -19,7 +20,7 @@ export default function App({ addresses, setAddressId, loading }) {
       <h2 className={`text-2xl 2xl:text-3xl font-bold mb-2 ${styles.satoshi}`}>
         Saved Addresses ({addresses ? addresses.length : "0"}) :
       </h2>
-      {addresses && (
+      {addresses && !addresses.length == 0 && (
         <p className="mb-4">
           {" "}
           <span className="text-xl ">࿋ </span>Click The final address
@@ -70,6 +71,12 @@ export default function App({ addresses, setAddressId, loading }) {
             </div>
           </div>
         ))}
+      {addresses && addresses.length == 0 && (
+        <div className={`flex gap-3 items-center my-2 justify-center`}>
+          <Lottie className="h-[180px]" animationData={FillAddress} />
+          <span>Click on The Above Button To Add Location </span>
+        </div>
+      )}
     </div>
   );
 }
